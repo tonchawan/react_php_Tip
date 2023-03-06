@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         prefix: '',
         firstName: '',
@@ -13,7 +17,15 @@ function Signup() {
       const handleSubmit = e => {
         e.preventDefault();
         console.log(formData);
+        navigate("/");
       };
+
+      const goToLogin = e => {
+        e.preventDefault();
+        navigate("/login");
+      };
+
+      
     
       const handleChange = e => {
         const { name, value } = e.target;
@@ -53,6 +65,7 @@ function Signup() {
             </label>
         <br/>
             <button type="submit">Register</button>
+            <button onClick={goToLogin}>Login</button>
         </form>
     </div>
     )

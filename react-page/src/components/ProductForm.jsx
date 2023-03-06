@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 function Product() {
+
+  const navigate = useNavigate();
 
   const [buyData, setBuyData] = useState({
     productname:'',
@@ -22,16 +25,31 @@ function Product() {
     const { name, value } = e.target;
     setBuyData({ ...buyData, [name]: value });
   };
+
+  const goToSignup = e => {
+    navigate("/signup");
+  };
+  const goToLogin = e => {
+    navigate("/login");
+  };
   
   return (
-    <div>this is product
-      <h3>Product name</h3>
+    <div>
+      <nav>
+        <button onClick={goToSignup}>Signup</button>
+        <button onClick={goToLogin}>Login</button>
+      </nav>
+
+      <div>this is product
+        <h3>Product name</h3>
+        <br />
+        <div>Product Detail</div>
+      </div>
       <br />
-      <div>Product Detail</div>
-      <br />
+
+
 
       <form onSubmit={handleSubmit}>
-
       <label>Product Name:
         <select type="option"  name="productname" value={buyData.productname} onChange={handleChange}>
           <option value="">--Please choose an option--</option>
@@ -83,7 +101,6 @@ function Product() {
             onChange={handleChange} />
         </label>
     <br/>
-
       <button type="submit">Buy</button>
       </form>
     </div>

@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate} from "react-router-dom";
 
 function Login() {
+
+    const navigate = useNavigate();
 
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',
       });
 
-      const handleSubmit = e => {
-        e.preventDefault();
-        console.log(loginData);
-      };
-    
       const handleChange = e => {
         const { name, value } = e.target;
         setLoginData({ ...loginData, [name]: value });
       };
+
+      const handleSubmit = e => {
+        e.preventDefault();
+        console.log(loginData);
+        navigate("/");
+      };
+
+      const goToSignup = e => {
+        navigate("/signup");
+      };
+    
 
     return (
     <div>
@@ -34,10 +43,9 @@ function Login() {
             onChange={handleChange} />
         </label>
     <br/>
-       
-    
         <button type="submit">Login</button>
     </form>
+        <button onClick={goToSignup}>Signup</button>
 </div>
       )
 }
