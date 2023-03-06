@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 function Login() {
 
     const [loginData, setLoginData] = useState({
@@ -20,21 +22,21 @@ function Login() {
         <form onSubmit={handleSubmit}>
         <label>Username:
             <input type="text" 
-            name="prefix" 
+            name="username" 
             value={loginData.username} 
             onChange={handleChange} />
         </label>
     <br/>
         <label>Password:
             <input type="text" 
-            name="firstName" 
+            name="password" 
             value={loginData.password} 
             onChange={handleChange} />
         </label>
     <br/>
        
     
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
     </form>
 </div>
       )

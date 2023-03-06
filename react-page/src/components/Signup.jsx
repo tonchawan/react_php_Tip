@@ -24,13 +24,6 @@ function Signup() {
 
     <div>
         <form onSubmit={handleSubmit}>
-            <label>Prefix:
-                <input type="text" 
-                name="prefix" 
-                value={formData.prefix} 
-                onChange={handleChange} />
-            </label>
-        <br/>
             <label>First Name:
                 <input type="text" 
                 name="firstName" 
@@ -42,13 +35,6 @@ function Signup() {
                 <input type="text" 
                 name="lastName" 
                 value={formData.lastName} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-            <label>Address:
-                <input type="text" 
-                name="address" 
-                value={formData.address} 
                 onChange={handleChange} />
             </label>
         <br/>
