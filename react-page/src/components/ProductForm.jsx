@@ -48,7 +48,6 @@ function Product() {
       <br />
 
 
-
       <form onSubmit={handleSubmit}>
       <label>Product Name:
         <select type="option"  name="productname" value={buyData.productname} onChange={handleChange}>
