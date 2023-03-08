@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
 
@@ -17,8 +18,15 @@ function Login() {
 
       const handleSubmit = e => {
         e.preventDefault();
-        console.log(loginData);
-        navigate("/");
+        axios.post('http://tip.test/api/login',loginData)
+        .then(()=>{
+          setLoginData(loginData)
+            console.log(loginData);
+            navigate("/");
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
       };
 
       const goToSignup = e => {
