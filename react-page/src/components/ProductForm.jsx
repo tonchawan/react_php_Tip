@@ -7,6 +7,7 @@ function Product() {
 
   const navigate = useNavigate();
 
+  const [packageData, setPackage] = useState([])
   const [buyData, setBuyData] = useState({
     userId:'',
     name: '',
@@ -19,35 +20,29 @@ function Product() {
     startDate:'',
     endDate:'',
     beneficial:''
-
   });
 
-  // const [packageData, setPackage] = useState({
-  //   title:'',
-  //   premium:'',
-  //   insuranceDetail:'',
-  // })
-// useEffect(()=>{
-//   axios.get('http://tip.test/api/package')
-//   .then(res=>{
-//     const packageData = res.data
-//     setPackage(packageData)
-//     console.log(packageData);
-//   })
-//   .catch((err)=>{
-//     console.log(err);
-//   alert("something error please contact our staff")
-//   })
-// },[])
+// get package API
+useEffect(()=>{
+  axios.get('http://tip.test/api/package')
+  // if sucess put data in to packageData by setBuyDat, using useState
+  .then(res=>{
+    setPackage(res.data.data)
+  })
+  // if fail alert
+  .catch((err)=>{
+    console.log(err);
+  alert("something error please contact our staff")
+  })
+},[])
   
-
   const handleSubmit = e => {
     e.preventDefault();
     axios.post('http://tip.test/api/buy',buyData)
     .then(()=>{
       setBuyData(buyData)
-      console.log(buyData);
       alert("Thank you for purchase");
+      window.location.href="http://tip.test/api/buyPdf"
     })
     .catch((err)=>{
       console.log(err);
@@ -62,11 +57,12 @@ function Product() {
 
   const goToSignup = e => {
     navigate("/signup");
+    console.log(packageData);
   };
   const goToLogin = e => {
     navigate("/login");
   };
-  
+
   return (
     <div>
       <nav>
@@ -74,10 +70,14 @@ function Product() {
         <button onClick={goToLogin}>Login</button>
       </nav>
 
-      <div>this is product
-        <h3>Product name</h3>
-        <br />
-        <div>Product Detail</div>
+      <div>
+        {packageData.map((pkg) => (
+          <div key={pkg.id}>
+            <h1>{pkg.title}</h1>
+            <p>Premium: {pkg.premium}</p>
+            <p>Insurance Details: {pkg.insuranceDetail}</p>
+          </div>
+        ))}
       </div>
       <br />
 
