@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import '../Css/Product.css';
 
 function Product() {
 
@@ -55,19 +55,15 @@ useEffect(()=>{
     setBuyData({ ...buyData, [name]: value });
   };
 
-  const goToSignup = e => {
-    navigate("/signup");
-    console.log(packageData);
-  };
-  const goToLogin = e => {
-    navigate("/login");
+  const goToLogOut = e => {
+    navigate("/");
   };
 
   return (
     <div>
       <nav>
-        <button onClick={goToSignup}>Signup</button>
-        <button onClick={goToLogin}>Login</button>
+      <h1>Welcome</h1>
+        <button onClick={goToLogOut}>Log Out</button>
       </nav>
 
       <div>

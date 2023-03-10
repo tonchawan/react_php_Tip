@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate} from "react-router-dom";
 import axios from 'axios';
+import '../Css/Login.css';
 
 function Login() {
 
@@ -22,7 +23,7 @@ function Login() {
         .then(()=>{
           setLoginData(loginData)
             console.log(loginData);
-            navigate("/");
+            navigate("/product");
         })
         .catch((err)=>{
             console.log(err)

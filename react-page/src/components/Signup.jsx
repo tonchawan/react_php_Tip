@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import '../Css/Signup.css';
 
 function Signup() {
 
@@ -27,7 +28,7 @@ function Signup() {
         .then(()=>{
             setFormData(formData)
             console.log(formData);
-            navigate("/");
+            navigate("/product");
         })
         .catch((err)=>{
             console.log(err)
