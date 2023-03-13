@@ -10,16 +10,15 @@ function Signup() {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
+        prefix: '',
         name: '',
         lastname: '',
-        prefix: '',
-        address: '',
+        sub_district: '',
+        district: '',
+        provience: '',
         phone: '',
-        email: '',
-        registerId: '',
-        govermentId: '',
-        dateRegister: '',
-        packageId: '',
+        email: '',   
+        govermentId: '',     
       });
 
       const handleSubmit = e => {
@@ -28,9 +27,10 @@ function Signup() {
         .then(()=>{
             setFormData(formData)
             console.log(formData);
-            navigate("/product");
+            navigate("/login");
         })
         .catch((err)=>{
+            alert('Some thing error maybe You data is duplicate')
             console.log(err)
         })
       };
@@ -65,6 +65,13 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
+            <label>Prefix:
+                <input type="text" 
+                name="prefix" 
+                value={formData.prefix} 
+                onChange={handleChange} />
+            </label>
+        <br/>
             <label>First Name:
                 <input type="text" 
                 name="name" 
@@ -79,17 +86,24 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
-            <label>Prefix:
+        <label>Sub District:
                 <input type="text" 
-                name="prefix" 
-                value={formData.prefix} 
+                name="sub_district" 
+                value={formData.sub_district} 
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Address:
+        <label>District:
                 <input type="text" 
-                name="address" 
-                value={formData.address} 
+                name="district" 
+                value={formData.district} 
+                onChange={handleChange} />
+            </label>
+        <br/>
+        <label>Provience:
+                <input type="text" 
+                name="provience" 
+                value={formData.provience} 
                 onChange={handleChange} />
             </label>
         <br/>
@@ -107,31 +121,10 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Register Id:
-                <input type="text" 
-                name="registerId" 
-                value={formData.registerId} 
-                onChange={handleChange} />
-            </label>
-        <br/>
         <label>Goverment id:
                 <input type="text" 
                 name="govermentId" 
                 value={formData.govermentId} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-        <label>Register Date:
-                <input type="date" 
-                name="dateRegister" 
-                value={formData.dateRegister} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-        <label>Package Id:
-                <input type="text" 
-                name="packageId" 
-                value={formData.packageId} 
                 onChange={handleChange} />
             </label>
         <br/>

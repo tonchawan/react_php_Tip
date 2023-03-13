@@ -1,111 +1,116 @@
 body {
-    background-color: #f2f2f2;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
+  background-color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  nav h1 {
-    margin: 0;
-  }
-  
-  nav button {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  nav button:hover {
-    background-color: #555;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .container h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .container p {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  form label {
-    font-size: 18px;
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  form input[type="number"],
-  form input[type="text"],
-  form select {
-    width: 100%;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  
-  form select {
-    background-color: #fff;
-  }
-  
-  form button[type="submit"] {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: #555;
-  }
-  
-  .alert {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .alert.success {
-    background-color: #4CAF50;
-    color: #fff;
-  }
-  
-  .alert.error {
-    background-color: #f44336;
-    color: #fff;
-  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
 
-  .package-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; /* set the height to 80% of the viewport height */
-  }
+nav h1 {
+  margin: 0;
+}
+
+nav button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+nav button:hover {
+  background-color: #555;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+form input[type="number"],
+form input[type="text"],
+form select {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+form select {
+  background-color: #fff;
+}
+
+form button[type="submit"] {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form button[type="submit"]:hover {
+  background-color: #555;
+}
+
+.alert {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.alert.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.package-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* set the height to 80% of the viewport height */
+}
+
+.package-container div:hover {
+  background-color: #000000;
+  color: #ffffff;
+}

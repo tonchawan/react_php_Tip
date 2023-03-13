@@ -7,21 +7,32 @@ function Home() {
 
   const navigate = useNavigate();
 
-  const [packageData, setPackage] = useState([])
+  const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
-    orderPackage:'',
-    agent: '',
-    customer: '',
-    comment:''
+    userId:'',
+    packageId:'',
+    prefix:'',
+    name: '',
+    lastname: '',
+    govermentId: '',
+    sub_district: '',
+    district: '',
+    provience: '',
+    email: '',
+    dob: '',
+    startDate:'',
+    endDate:'',
+    beneficial:'',
+    OrderStatus:''
   });
 
 // get package API
 useEffect(()=>{
-  axios.get('http://localhost:8080/packages')
+  axios.get('http://tip.test/api/package')
   // if sucess put data in to packageData by setBuyDat, using useState
   .then(res=>{
-    console.log(res.data);
-    setPackage(res.data)
+    console.log(res.data.data);
+    setPackage(res.data.data)
   })
   // if fail alert
   .catch((err)=>{
@@ -32,8 +43,16 @@ useEffect(()=>{
   
   const handleSubmit = e => {
     e.preventDefault();
-    alert("Please Login")
-    navigate("/login");
+    axios.post('http://tip.test/api/buy',buyData)
+    .then(()=>{
+      setBuyData(buyData)
+      alert("Thank you for purchase");
+      window.location.href="http://tip.test/api/buyPdf"
+    })
+    .catch((err)=>{
+      console.log(err);
+    alert("something error please contact our staff")
+    })
   };
 
   const handleChange = e => {
@@ -72,42 +91,87 @@ useEffect(()=>{
 
       <form onSubmit={handleSubmit}>
       <label>Product Name:
-        <select type="option"  name="orderPackage" value={buyData.orderPackage} onChange={handleChange}>
-          <option value="">--Please choose an option--</option>
-          <option value="1" >Option 1</option>
-          <option value="2" >Option 2</option>
-          <option value="3" >Option 3</option>
-          <option value="4" >Option 4</option>
-          <option value="5" >Option 5</option>
+        <select type="option" name="userId" value={buyData.userId} onChange={handleChange}> 
+        {packageData.map((pkg) => (   
+            <option value={pkg.title} key={pkg.id}>
+                {pkg.title}
+            </option>
+        ))}
         </select>   
-      </label>      
+      </label>    
     <br/>
-        <label>Agent ID:
-            <input type="number"
-            name="agent" 
-            value={buyData.agent} 
+        <label>Firstname:
+            <input type="text" 
+            name="name" 
+            value={buyData.name} 
             onChange={handleChange} />
         </label>
     <br/>
-        <label>Customer ID:
-            <input type="number"
-            name="customer" 
-            value={buyData.customer} 
+        <label>Lastname:
+            <input type="text" 
+            name="lastname" 
+            value={buyData.lastname} 
             onChange={handleChange} />
         </label>
     <br/>
-    <label>Customer name :
+        <label>Prefix:
+            <input type="text" 
+            name="prefix" 
+            value={buyData.prefix} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+        <label>Identity:
+            <input type="number" 
+            name="govermentId" 
+            value={buyData.govermentId} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+        <label>Address:
             <input type="text"
-            placeholder='Your Customer name'
-            name="comment" 
-            value={buyData.comment} 
+            name="address" 
+            value={buyData.address} 
             onChange={handleChange} />
         </label>
     <br/>
-   
+        <label>Email:
+            <input type="email"
+            name="email" 
+            value={buyData.email} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+        <label>Date of birth:
+            <input type="date"
+            name="dob" 
+            value={buyData.dob} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+    <label>Start Dateh:
+            <input type="date"
+            name="startDate" 
+            value={buyData.startDate} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+    <label>End Date:
+            <input type="date"
+            name="endDate" 
+            value={buyData.endDate} 
+            onChange={handleChange} />
+        </label>
+    <br/>
+    <label>Beneficial:
+            <input type="text"
+            name="beneficial" 
+            value={buyData.beneficial} 
+            onChange={handleChange} />
+        </label>
+    <br/>
       <button type="submit">Buy</button>
       </form>
-
     </div>
   )
 }

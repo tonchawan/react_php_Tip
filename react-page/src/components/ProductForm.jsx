@@ -7,26 +7,31 @@ function Product() {
 
   const navigate = useNavigate();
 
-  const [packageData, setPackage] = useState([])
+  const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
-    userId:'',
+    userId:'98',
+    packageId:'',
+    prefix:'',
     name: '',
     lastname: '',
-    prefix:'',
     govermentId: '',
-    address: '',
+    sub_district: '',
+    district: '',
+    provience: '',
     email: '',
     dob: '',
     startDate:'',
     endDate:'',
-    beneficial:''
+    beneficial:'',
+    OrderStatus:1,
   });
 
 // get package API
 useEffect(()=>{
   axios.get('http://tip.test/api/package')
-  // if sucess put data in to packageData by setBuyDat, using useState
+  // if sucess put data in to packageData by setBuyData, using useState
   .then(res=>{
+    console.log(res.data.data);
     setPackage(res.data.data)
   })
   // if fail alert
@@ -38,11 +43,11 @@ useEffect(()=>{
   
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://tip.test/api/buy',buyData)
+    console.log(buyData);
+    axios.post('http://tip.test/api/buyPdf',buyData)
     .then(()=>{
       setBuyData(buyData)
       alert("Thank you for purchase");
-      window.location.href="http://tip.test/api/buyPdf"
     })
     .catch((err)=>{
       console.log(err);
@@ -63,13 +68,14 @@ useEffect(()=>{
     <div>
       <nav>
       <h1>Welcome</h1>
+
         <button onClick={goToLogOut}>Log Out</button>
       </nav>
 
-      <div>
+      <div className="package-container">
         {packageData.map((pkg) => (
           <div key={pkg.id}>
-            <h1>{pkg.title}</h1>
+            <h2>{pkg.title}</h2>
             <p>Premium: {pkg.premium}</p>
             <p>Insurance Details: {pkg.insuranceDetail}</p>
           </div>
@@ -80,16 +86,21 @@ useEffect(()=>{
 
       <form onSubmit={handleSubmit}>
       <label>Product Name:
-        <select type="option"  name="userId" value={buyData.userId} onChange={handleChange}>
-          <option value="">--Please choose an option--</option>
-          <option value="Option 1" >Option 1</option>
-          <option value="Option 2" >Option 2</option>
-          <option value="Option 3" >Option 3</option>
-          <option value="Option 4" >Option 4</option>
-          <option value="Option 5" >Option 5</option>
-          <option value="Option 6" >Option 6</option>
+        <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange}> 
+        {packageData.map((pkg) => (   
+            <option value={pkg.title} key={pkg.id}>
+                {pkg.title}
+            </option>
+        ))}
         </select>   
       </label>      
+    <br/>
+        <label>Prefix:
+            <input type="text" 
+            name="prefix" 
+            value={buyData.prefix} 
+            onChange={handleChange} />
+        </label>
     <br/>
         <label>Firstname:
             <input type="text" 
@@ -105,13 +116,6 @@ useEffect(()=>{
             onChange={handleChange} />
         </label>
     <br/>
-        <label>Prefix:
-            <input type="text" 
-            name="prefix" 
-            value={buyData.prefix} 
-            onChange={handleChange} />
-        </label>
-    <br/>
         <label>Identity:
             <input type="number" 
             name="govermentId" 
@@ -119,13 +123,27 @@ useEffect(()=>{
             onChange={handleChange} />
         </label>
     <br/>
-        <label>Address:
-            <input type="text"
-            name="address" 
-            value={buyData.address} 
-            onChange={handleChange} />
-        </label>
-    <br/>
+    <label>Sub District:
+                <input type="text" 
+                name="sub_district" 
+                value={buyData.sub_district} 
+                onChange={handleChange} />
+            </label>
+        <br/>
+        <label>District:
+                <input type="text" 
+                name="district" 
+                value={buyData.district} 
+                onChange={handleChange} />
+            </label>
+        <br/>
+        <label>Provience:
+                <input type="text" 
+                name="provience" 
+                value={buyData.provience} 
+                onChange={handleChange} />
+            </label>
+        <br/>
         <label>Email:
             <input type="email"
             name="email" 
@@ -162,6 +180,7 @@ useEffect(()=>{
         </label>
     <br/>
       <button type="submit">Buy</button>
+      {/* <button onClick={safeDraf}>Safe Draf</button> */}
       </form>
     </div>
   )
