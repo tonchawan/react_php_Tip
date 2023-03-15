@@ -7,6 +7,7 @@ function Home() {
 
   const navigate = useNavigate();
 
+  // Store data in the varible
   const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
     userId:'',
@@ -22,8 +23,8 @@ function Home() {
     dob: '',
     startDate:'',
     endDate:'',
-    beneficial:'',
-    OrderStatus:''
+    beneficial:"ทายาทตามกฏหมาย",
+    OrderStatus:1
   });
 
 // get package API
@@ -41,25 +42,38 @@ useEffect(()=>{
   })
 },[])
   
+  // When this function was used it will post varible to backend by use axios
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://tip.test/api/buy',buyData)
+    axios.post('http://tip.test/api/buyPdf',buyData)
     .then(()=>{
       setBuyData(buyData)
       alert("Thank you for purchase");
-      window.location.href="http://tip.test/api/buyPdf"
+
+      // ALT way. use this function to go to another API
+      // window.location.href="http://tip.test/api/buyPdf"
     })
     .catch((err)=>{
       console.log(err);
     alert("something error please contact our staff")
+    console.log(buyData);
     })
   };
 
+  // function to store varible
   const handleChange = e => {
     const { name, value } = e.target;
     setBuyData({ ...buyData, [name]: value });
+
+    // If the start date field changes, calculate the end date
+    if (name === "startDate") {
+      const startDate = new Date(value);
+      const endDate = new Date(startDate.getFullYear() + 1, startDate.getMonth(), startDate.getDate());
+      setBuyData(prevBuyData => ({ ...prevBuyData, endDate: endDate.toISOString().split("T")[0] }));
+    }
   };
 
+  // Change path. Go to another page
   const goToSignup = e => {
     navigate("/signup");
   };
@@ -67,8 +81,10 @@ useEffect(()=>{
     navigate("/login");
   };
 
+  // After this some of the result will be visuallise
   return (
     <div>
+
       <nav>
         <h1>Hi There</h1>
         <div>
@@ -76,6 +92,7 @@ useEffect(()=>{
             <button onClick={goToLogin}>Login</button>
         </div>
       </nav>
+
 
       <div className="package-container">
         {packageData.map((pkg) => (
@@ -91,9 +108,9 @@ useEffect(()=>{
 
       <form onSubmit={handleSubmit}>
       <label>Product Name:
-        <select type="option" name="userId" value={buyData.userId} onChange={handleChange}> 
+        <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange}> 
         {packageData.map((pkg) => (   
-            <option value={pkg.title} key={pkg.id}>
+            <option value={pkg.id} key={pkg.id}>
                 {pkg.title}
             </option>
         ))}
@@ -122,19 +139,33 @@ useEffect(()=>{
         </label>
     <br/>
         <label>Identity:
-            <input type="number" 
+            <input type="text" 
             name="govermentId" 
             value={buyData.govermentId} 
             onChange={handleChange} />
         </label>
     <br/>
-        <label>Address:
-            <input type="text"
-            name="address" 
-            value={buyData.address} 
-            onChange={handleChange} />
-        </label>
-    <br/>
+        <label>Sub District:
+                <input type="text" 
+                name="sub_district" 
+                value={buyData.sub_district} 
+                onChange={handleChange} />
+            </label>
+        <br/>
+        <label>District:
+                <input type="text" 
+                name="district" 
+                value={buyData.district} 
+                onChange={handleChange} />
+            </label>
+        <br/>
+        <label>Provience:
+                <input type="text" 
+                name="provience" 
+                value={buyData.provience} 
+                onChange={handleChange} />
+            </label>
+        <br/>
         <label>Email:
             <input type="email"
             name="email" 
@@ -144,7 +175,8 @@ useEffect(()=>{
     <br/>
         <label>Date of birth:
             <input type="date"
-            name="dob" 
+            name="dob"
+            max={ new Date().toISOString().split('T')[0]}
             value={buyData.dob} 
             onChange={handleChange} />
         </label>
@@ -152,6 +184,7 @@ useEffect(()=>{
     <label>Start Dateh:
             <input type="date"
             name="startDate" 
+            min={ new Date().toISOString().split('T')[0]}
             value={buyData.startDate} 
             onChange={handleChange} />
         </label>
@@ -159,14 +192,15 @@ useEffect(()=>{
     <label>End Date:
             <input type="date"
             name="endDate" 
-            value={buyData.endDate} 
+            value={buyData.endDate}
+            readOnly
             onChange={handleChange} />
         </label>
     <br/>
     <label>Beneficial:
             <input type="text"
             name="beneficial" 
-            value={buyData.beneficial} 
+            defaultValue={"ทายาทตามกฏหมาย"}
             onChange={handleChange} />
         </label>
     <br/>

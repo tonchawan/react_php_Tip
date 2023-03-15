@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../Css/Signup.css';
 
-function Signup() {
+function UserProfile(props) {
+    console.log(props.userData);
 
     const navigate = useNavigate();
 
@@ -20,19 +21,19 @@ function Signup() {
         email: '',   
         govermentId: '',     
       });
+      const user = props.userData
 
-      const handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        axios.post('http://tip.test/api/tip/register',formData)
+        axios.put('http://tip.test/api/tip/register/' + user.id,user)
         .then(()=>{
             setFormData(formData)
             console.log(formData);
-            navigate("/login");
+            alert('Infomatio change')
         })
         .catch((err)=>{
             alert('Some thing error maybe You data is duplicate')
             console.log(err)
-            console.log(formData);
         })
       };
 
@@ -45,52 +46,43 @@ function Signup() {
     
       const handleChange = e => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        props.setUserData({ ...user, [name]: value });
       };
-  
-    return (
+
+return (
 
     <div>
         <form onSubmit={handleSubmit}>
             <label>Username:
                 <input type="text" 
-                name="username"
                 required
-                value={formData.username} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-            <label>Password:
-                <input type="text" 
-                name="password" 
-                required
-                value={formData.password} 
-                onChange={handleChange} />
+                name="username" 
+                value={user.username}
+                // defaultValue={user.username}
+    
+                />
             </label>
         <br/>
             <label>Prefix:
-                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange}>
-                    <option value="Mr.">Mr.</option>
-                    <option value="Mrs.">Mrs.</option>
-                    <option value="Mr. Boy">Mr. Boy</option>
-                    <option value="Miss">Miss</option>
-                    <option value="Girl">Girl</option>
-                </select>
+                <input type="text" 
+                name="prefix" 
+                defaultValue={user.prefix} 
+                onChange={handleChange} />
             </label>
         <br/>
             <label>First Name:
                 <input type="text" 
-                name="name"
-                required 
-                value={formData.name} 
+                required
+                name="name" 
+                defaultValue={user.name} 
                 onChange={handleChange} />
             </label>
         <br/>
             <label>Last Name:
-                <input type="text" 
-                name="lastname"
+                <input type="text"
                 required 
-                value={formData.lastname} 
+                name="lastname" 
+                defaultValue={user.lastname} 
                 onChange={handleChange} />
             </label>
         <br/>
@@ -98,15 +90,15 @@ function Signup() {
                 <input type="text" 
                 name="sub_district" 
                 required
-                value={formData.sub_district} 
+                defaultValue={user.sub_district} 
                 onChange={handleChange} />
             </label>
         <br/>
         <label>District:
                 <input type="text" 
-                name="district" 
+                name="district"
                 required
-                value={formData.district} 
+                defaultValue={user.district} 
                 onChange={handleChange} />
             </label>
         <br/>
@@ -114,37 +106,38 @@ function Signup() {
                 <input type="text" 
                 name="provience" 
                 required
-                value={formData.provience} 
+                defaultValue={user.provience} 
                 onChange={handleChange} />
             </label>
         <br/>
             <label>Phone Number:
                 <input type="text" 
-                name="phone" 
-                value={formData.phone} 
+                name="phone"
+                required
+                defaultValue={user.phone} 
                 onChange={handleChange} />
             </label>
         <br/>
             <label>Email:
                 <input type="email" 
-                name="email" 
-                required
-                value={formData.email} 
+                name="email"
+                required 
+                defaultValue={user.email} 
                 onChange={handleChange} />
             </label>
         <br/>
         <label>Goverment id:
                 <input type="text" 
-                name="govermentId" 
-                required
-                value={formData.govermentId} 
+                name="govermentId"
+                required 
+                value={user.govermentId} 
                 onChange={handleChange} />
             </label>
         <br/>
-            <button type="submit">Register</button>
+            <button type="submit">Edit Profile</button>
             <button onClick={goToLogin}>Login</button>
         </form>
     </div>
     )
-  }
-    export default Signup;
+}
+export default UserProfile;

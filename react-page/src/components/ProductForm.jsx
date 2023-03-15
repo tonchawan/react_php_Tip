@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Css/Product.css';
 
 function Product() {
@@ -9,7 +9,7 @@ function Product() {
 
   const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
-    userId:'98',
+    userId:'',
     packageId:'',
     prefix:'',
     name: '',
@@ -58,6 +58,13 @@ useEffect(()=>{
   const handleChange = e => {
     const { name, value } = e.target;
     setBuyData({ ...buyData, [name]: value });
+
+    // If the start date field changes, calculate the end date
+    if (name === "startDate") {
+      const startDate = new Date(value);
+      const endDate = new Date(startDate.getFullYear() + 1, startDate.getMonth(), startDate.getDate());
+      setBuyData(prevBuyData => ({ ...prevBuyData, endDate: endDate.toISOString().split("T")[0] }));
+    }
   };
 
   const goToLogOut = e => {
@@ -68,7 +75,7 @@ useEffect(()=>{
     <div>
       <nav>
       <h1>Welcome</h1>
-
+        <Link to = '/user'>User</Link> 
         <button onClick={goToLogOut}>Log Out</button>
       </nav>
 
@@ -96,10 +103,13 @@ useEffect(()=>{
       </label>      
     <br/>
         <label>Prefix:
-            <input type="text" 
-            name="prefix" 
-            value={buyData.prefix} 
-            onChange={handleChange} />
+          <select id="prefix" name="prefix">
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Mr. Boy">Mr. Boy</option>
+            <option value="Miss">Miss</option>
+            <option value="Girl">Girl</option>
+          </select>
         </label>
     <br/>
         <label>Firstname:
@@ -154,13 +164,15 @@ useEffect(()=>{
         <label>Date of birth:
             <input type="date"
             name="dob" 
+            max={ new Date().toISOString().split('T')[0]}
             value={buyData.dob} 
             onChange={handleChange} />
         </label>
     <br/>
-    <label>Start Dateh:
+    <label>Start Date:
             <input type="date"
             name="startDate" 
+            min={ new Date().toISOString().split('T')[0]}
             value={buyData.startDate} 
             onChange={handleChange} />
         </label>
@@ -168,7 +180,8 @@ useEffect(()=>{
     <label>End Date:
             <input type="date"
             name="endDate" 
-            value={buyData.endDate} 
+            value={buyData.endDate}
+            readOnly
             onChange={handleChange} />
         </label>
     <br/>

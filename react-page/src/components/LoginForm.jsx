@@ -3,7 +3,7 @@ import { useNavigate} from "react-router-dom";
 import axios from 'axios';
 import '../Css/Login.css';
 
-function Login() {
+function Login(props) {
 
     const navigate = useNavigate();
 
@@ -20,9 +20,9 @@ function Login() {
       const handleSubmit = e => {
         e.preventDefault();
         axios.post('http://tip.test/api/login',loginData)
-        .then(()=>{
-          setLoginData(loginData)
-            console.log(loginData);
+        .then((res)=>{
+          props.setUserData(res.data.data)
+          console.log(res.data.data);
             navigate("/product");
         })
         .catch((err)=>{
@@ -40,14 +40,16 @@ function Login() {
         <form onSubmit={handleSubmit}>
         <label>Username:
             <input type="text" 
-            name="username" 
+            name="username"
+            required
             value={loginData.username} 
             onChange={handleChange} />
         </label>
     <br/>
         <label>Password:
-            <input type="text" 
+            <input type="password" 
             name="password" 
+            required
             value={loginData.password} 
             onChange={handleChange} />
         </label>
