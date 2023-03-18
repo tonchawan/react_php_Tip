@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate} from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import axios from 'axios';
 import '../Css/Login.css';
 
@@ -37,6 +37,11 @@ function Login(props) {
 
     return (
     <div>
+
+      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600" />
+
+
+
         <form onSubmit={handleSubmit}>
         <label>Username:
             <input type="text" 
@@ -56,7 +61,8 @@ function Login(props) {
     <br/>
         <button type="submit">Login</button>
     </form>
-        <button onClick={goToSignup}>Signup</button>
+        <Link to={'/signup'}>Register</Link>
+        
 </div>
       )
 }

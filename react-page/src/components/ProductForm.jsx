@@ -78,39 +78,30 @@ useEffect(()=>{
         <Link to = '/user'>User</Link> 
         <button onClick={goToLogOut}>Log Out</button>
       </nav>
-
-      <div className="package-container">
-        {packageData.map((pkg) => (
-          <div key={pkg.id}>
-            <h2>{pkg.title}</h2>
-            <p>Premium: {pkg.premium}</p>
-            <p>Insurance Details: {pkg.insuranceDetail}</p>
-          </div>
-        ))}
-      </div>
       <br />
-
 
       <form onSubmit={handleSubmit}>
       <label>Product Name:
-        <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange}> 
-        {packageData.map((pkg) => (   
-            <option value={pkg.title} key={pkg.id}>
-                {pkg.title}
-            </option>
-        ))}
+        <select type="option" name="packageId" defaultValue={""} onChange={handleChange}> 
+          <option disabled value="">Please Select Package</option>
+          {packageData.map((pkg) => (  
+              <option value={pkg.title} key={pkg.id}>
+                  {pkg.title}
+              </option>
+          ))}
         </select>   
       </label>      
     <br/>
-        <label>Prefix:
-          <select id="prefix" name="prefix">
-            <option value="Mr.">Mr.</option>
-            <option value="Mrs.">Mrs.</option>
-            <option value="Mr. Boy">Mr. Boy</option>
-            <option value="Miss">Miss</option>
-            <option value="Girl">Girl</option>
-          </select>
-        </label>
+    <label>Prefix:
+                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange}>
+                    <option disabled value="">Title</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Mr. Boy">Mr. Boy</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Girl">Girl</option>
+                </select>
+            </label>
     <br/>
         <label>Firstname:
             <input type="text" 

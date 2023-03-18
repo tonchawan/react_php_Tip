@@ -36,21 +36,20 @@ function Signup() {
         })
       };
 
-      const goToLogin = e => {
+      const goToHome = e => {
         e.preventDefault();
-        navigate("/login");
+        navigate("/");
       };
-
-      
-    
       const handleChange = e => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
       };
   
     return (
+        <div>
 
-    <div>
+        <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600" />
+
         <form onSubmit={handleSubmit}>
             <label>Username:
                 <input type="text" 
@@ -68,8 +67,9 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
-            <label>Prefix:
+        <label>Prefix:
                 <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange}>
+                    <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>
                     <option value="Mr. Boy">Mr. Boy</option>
@@ -142,7 +142,7 @@ function Signup() {
             </label>
         <br/>
             <button type="submit">Register</button>
-            <button onClick={goToLogin}>Login</button>
+            <button onClick={goToHome}>Cancle</button>
         </form>
     </div>
     )

@@ -13,17 +13,26 @@ function App() {
   
 
   return (
+    <div>
+    <nav>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login setUserData={setUserData} />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path="/product" element={<Product />}/>
+        <Route path="/product" element={<Product  />}/>
         <Route path='/user' element={<UserProfile 
                                       setUserData={setUserData}
                                       userData={userData}/>}/>
       </Routes>
     </BrowserRouter>
+    </nav>
+    <footer>
+
+    </footer>
+
+    </div>
+
   );
 }
 
