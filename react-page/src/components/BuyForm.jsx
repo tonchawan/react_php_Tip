@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import '../Css/Product.css';
 
-function Product() {
+function BuyForm() {
 
   const navigate = useNavigate();
 
@@ -189,4 +189,4 @@ useEffect(()=>{
     </div>
   )
 }
-  export default Product;
+  export default BuyForm;
