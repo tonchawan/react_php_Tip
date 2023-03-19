@@ -52,17 +52,13 @@ function UserProfile(props) {
 return (
 
     <div>
-        <form onSubmit={handleSubmit}>
-            <label>Username:
-                <input type="text" 
-                required
-                name="username" 
-                value={user.username}
-                // defaultValue={user.username}
-    
-                />
-            </label>
+        <div>
+        <p>Username :{user.username}</p>   
         <br/>
+        <p>Register Date :{user.create_at}</p>   
+        </div>
+        <form onSubmit={handleSubmit}>
+            
             <label>Prefix:
                 <input type="text" 
                 name="prefix" 

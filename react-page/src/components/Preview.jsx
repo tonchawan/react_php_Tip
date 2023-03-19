@@ -1,4 +1,22 @@
-function Preview (params) {
+import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+import BuyForm from './BuyForm';
+
+function Preview (props) {
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(buyData);
+        axios.post('http://tip.test/api/buyPdf',buyData)
+        .then(()=>{
+          setBuyData(buyData)
+          alert("Thank you for purchase");
+        })
+        .catch((err)=>{
+          console.log(err);
+        alert("something error please contact our staff")
+        })
+      };
     
 return(
 <div>
