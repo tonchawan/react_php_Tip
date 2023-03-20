@@ -26,9 +26,9 @@ function UserProfile(props) {
     const handleSubmit = e => {
         e.preventDefault();
         axios.put('http://tip.test/api/tip/register/' + user.id,user)
-        .then(()=>{
+        .then((res)=>{
             setFormData(formData)
-            console.log(formData);
+            window.localStorage.setItem("user", JSON.stringify(user))
             alert('Infomatio change')
         })
         .catch((err)=>{

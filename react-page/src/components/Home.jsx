@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Css/Home.css';
 
 function Home() {
@@ -30,24 +30,27 @@ useEffect(()=>{
   const goToLogin = e => {
     navigate("/login");
   };
-
+console.log(window.localStorage.getItem("user"));
   return (
     <div>
 
-      <nav>
+      {/* <nav>
         <h1>Hi There</h1>
         <div>
             <button onClick={goToSignup}>Signup</button>
             <button onClick={goToLogin}>Login</button>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="package-container">
         {packageData.map((pkg) => (
           <div key={pkg.id}>
+            <Link to="/buyForm">
             <h2>{pkg.title}</h2>
             <p>Premium: {pkg.premium}</p>
             <p>Insurance Details: {pkg.insuranceDetail}</p>
+
+            </Link>
           </div>
         ))}
       </div>

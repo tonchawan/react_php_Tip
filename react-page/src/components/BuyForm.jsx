@@ -3,21 +3,30 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import '../Css/Product.css';
 
-function BuyForm() {
+function BuyForm(props) {
+
+  let user = props.userData ;
+  if (!user) {
+    user={
+      "id": ''
+    }
+  }
 
   const navigate = useNavigate();
 
   const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
-    userId:'',
+    userId:user.id ,
     packageId:'',
     prefix:'',
     name: '',
     lastname: '',
     govermentId: '',
+    address:'',
     sub_district: '',
     district: '',
     provience: '',
+    postcode:'',
     email: '',
     dob: '',
     startDate:'',
@@ -25,6 +34,7 @@ function BuyForm() {
     beneficial:'',
     OrderStatus:1,
   });
+
 
 // get package API
 useEffect(()=>{
@@ -39,15 +49,37 @@ useEffect(()=>{
     console.log(err);
   alert("something error please contact our staff")
   })
+  if (props.draftId) {
+    axios.get('http://tip.test/api/getOrder/'+props.draftId)
+      .then((res)=>{
+        setBuyData(res.data.data)
+      })
+    
+  }
 },[])
+
   
   const handleSubmit = e => {
     e.preventDefault();
     console.log(buyData);
-    axios.post('http://tip.test/api/buyPdf',buyData)
+    if (props.draftId) {
+      axios.put('http://tip.test/api/buy/'+ props.draftId, buyData)
+      .then(()=>{
+        alert("Thank you for purchase");
+        navigate("/");
+      })
+      .catch((err)=>{
+        console.log(err);
+      alert("something error please contact our staff")
+      })
+      
+    }
+
+    axios.post('http://tip.test/api/buy',buyData)
     .then(()=>{
       setBuyData(buyData)
       alert("Thank you for purchase");
+      navigate("/");
     })
     .catch((err)=>{
       console.log(err);
@@ -71,21 +103,27 @@ useEffect(()=>{
     navigate("/");
   };
 
+  const saveDraf = e => {
+    axios.post('http://tip.test/api/saveDraf',buyData)
+    .then(()=>{
+      setBuyData(buyData)
+      alert("Thank you for purchase");
+    })
+    .catch((err)=>{
+      console.log(err);
+    alert("something error please contact our staff")
+    })
+  };
+
+
   return (
     <div>
-      <nav>
-      <h1>Welcome</h1>
-        <Link to = '/user'>User</Link> 
-        <button onClick={goToLogOut}>Log Out</button>
-      </nav>
-      <br />
-
       <form onSubmit={handleSubmit}>
       <label>Product Name:
-        <select type="option" name="packageId" defaultValue={""} onChange={handleChange}> 
+        <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange} required> 
           <option disabled value="">Please Select Package</option>
           {packageData.map((pkg) => (  
-              <option value={pkg.title} key={pkg.id}>
+              <option value={pkg.id} key={pkg.id}>
                   {pkg.title}
               </option>
           ))}
@@ -93,7 +131,7 @@ useEffect(()=>{
       </label>      
     <br/>
     <label>Prefix:
-                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange}>
+                <select id="prefix" name="prefix"  value={buyData.prefix} onChange={handleChange}required>
                     <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>
@@ -106,86 +144,118 @@ useEffect(()=>{
         <label>Firstname:
             <input type="text" 
             name="name" 
-            value={buyData.name} 
-            onChange={handleChange} />
+            defaultValue={buyData.name} 
+            onChange={handleChange} 
+            required
+            />
         </label>
     <br/>
         <label>Lastname:
             <input type="text" 
             name="lastname" 
-            value={buyData.lastname} 
-            onChange={handleChange} />
+            defaultValue={buyData.lastname} 
+            onChange={handleChange} 
+            required
+            />
         </label>
     <br/>
         <label>Identity:
-            <input type="number" 
+            <input type="text" 
             name="govermentId" 
-            value={buyData.govermentId} 
-            onChange={handleChange} />
+            defaultValue={buyData.govermentId} 
+            onChange={handleChange} 
+            required
+            />
         </label>
     <br/>
+    <label>Address:
+                <input type="text" 
+                name="address" 
+                defaultValue={buyData.address} 
+                onChange={handleChange} 
+                required/>
+            </label>
+        <br/>
     <label>Sub District:
                 <input type="text" 
                 name="sub_district" 
-                value={buyData.sub_district} 
-                onChange={handleChange} />
+                defaultValue={buyData.sub_district} 
+                onChange={handleChange} 
+                required/>
             </label>
         <br/>
         <label>District:
                 <input type="text" 
                 name="district" 
-                value={buyData.district} 
-                onChange={handleChange} />
+                defaultValue={buyData.district} 
+                onChange={handleChange}
+                required />
             </label>
         <br/>
         <label>Provience:
                 <input type="text" 
                 name="provience" 
-                value={buyData.provience} 
-                onChange={handleChange} />
+                defaultValue={buyData.provience} 
+                onChange={handleChange} 
+                required/>
+            </label>
+        <br/>
+        <label>Post Code:
+                <input type="text" 
+                name="postcode" 
+                defaultValue={buyData.postcode} 
+                onChange={handleChange} 
+                required/>
             </label>
         <br/>
         <label>Email:
             <input type="email"
             name="email" 
-            value={buyData.email} 
-            onChange={handleChange} />
+            defaultValue={buyData.email} 
+            onChange={handleChange} 
+            required/>
         </label>
     <br/>
         <label>Date of birth:
             <input type="date"
             name="dob" 
             max={ new Date().toISOString().split('T')[0]}
-            value={buyData.dob} 
-            onChange={handleChange} />
+            defaultValue={buyData.dob} 
+            onChange={handleChange} 
+            required/>
         </label>
     <br/>
     <label>Start Date:
             <input type="date"
             name="startDate" 
             min={ new Date().toISOString().split('T')[0]}
-            value={buyData.startDate} 
-            onChange={handleChange} />
+            defaultValue={buyData.startDate} 
+            onChange={handleChange} 
+            required
+            />
+            
         </label>
     <br/>
     <label>End Date:
             <input type="date"
             name="endDate" 
-            value={buyData.endDate}
-            readOnly
-            onChange={handleChange} />
+            defaultValue={buyData.endDate}
+            min={buyData.startDate}
+            onChange={handleChange} 
+            required/>
         </label>
     <br/>
     <label>Beneficial:
             <input type="text"
             name="beneficial" 
-            value={buyData.beneficial} 
+            defaultValue={buyData.beneficial} 
+            required
             onChange={handleChange} />
         </label>
     <br/>
       <button type="submit">Buy</button>
-      {/* <button onClick={safeDraf}>Safe Draf</button> */}
       </form>
+      {!props.userData && <button onClick={saveDraf}>Save Draft</button>}
     </div>
   )
 }

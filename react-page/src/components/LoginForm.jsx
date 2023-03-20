@@ -21,9 +21,12 @@ function Login(props) {
         e.preventDefault();
         axios.post('http://tip.test/api/login',loginData)
         .then((res)=>{
-          props.setUserData(res.data.data)
+          // props.setUserData(res.data.data)
+          window.localStorage.setItem("user", JSON.stringify(res.data.data))
+
           console.log(res.data.data);
-            navigate("/product");
+            // navigate("/");
+            window.location.href="/";
         })
         .catch((err)=>{
             console.log(err)
