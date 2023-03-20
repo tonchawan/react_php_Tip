@@ -5,12 +5,21 @@ import '../Css/Product.css';
 
 function BuyForm(props) {
 
-  const userDatas = window.localStorage.getItem("user")
-  console.log(JSON.parse(userDatas));
   let user = props.userData ;
+
+  
   if (!user) {
     user={
-      "id": ''
+      "id": '',
+      "prefix" : '',
+      "name" : '',
+      "lastname" : '',
+      "govermentId" : '',
+      "sub_district" : '',
+      "district" : '',
+      "provience" : '',
+      "email" : '',
+      "beneficial" : ''
     }
   }
 
@@ -18,22 +27,22 @@ function BuyForm(props) {
 
   const [packageData, setPackage] = useState([""])
   const [buyData, setBuyData] = useState({
-    userId:user.id ,
+    userId: user.id ,
     packageId:'',
-    prefix:'',
-    name: '',
-    lastname: '',
-    govermentId: '',
+    prefix: user.prefix,
+    name: user.name,
+    lastname: user.lastname,
+    govermentId: user.govermentId,
     address:'',
-    sub_district: '',
-    district: '',
-    provience: '',
+    sub_district: user.sub_district,
+    district: user.district,
+    provience: user.provience,
     postcode:'',
-    email: '',
+    email: user.name,
     dob: '',
     startDate:'',
     endDate:'',
-    beneficial:'',
+    beneficial:user.beneficial,
     OrderStatus:1,
   });
 
@@ -104,7 +113,7 @@ useEffect(()=>{
     }
   };
 
-  const goToLogOut = e => {
+  const toHome =()=> {
     navigate("/");
   };
 
@@ -197,7 +206,7 @@ useEffect(()=>{
                 required />
             </label>
         <br/>
-        <label>Provience:
+        <label>Province:
                 <input type="text" 
                 name="provience" 
                 defaultValue={buyData.provience} 
@@ -205,7 +214,7 @@ useEffect(()=>{
                 required/>
             </label>
         <br/>
-        <label>Post Code:
+        <label>Zip Code:
                 <input type="text" 
                 name="postcode" 
                 defaultValue={buyData.postcode} 
@@ -264,7 +273,7 @@ useEffect(()=>{
       <button type="submit">Buy</button>
       </form>
       {props.userData && <button onClick={saveDraf}>Save Draft</button>}
-      <button onClick={saveDraf}>Cancle</button>
+      <button onClick={toHome}>Cancle</button>
 
 
     </div>

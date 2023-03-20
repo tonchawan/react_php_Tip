@@ -122,7 +122,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Goverment id:
+        <label>Identity:
                 <input type="text" 
                 name="govermentId"
                 required 

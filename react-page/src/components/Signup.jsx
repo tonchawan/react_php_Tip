@@ -60,7 +60,7 @@ function Signup() {
             </label>
         <br/>
             <label>Password:
-                <input type="text" 
+                <input type="password" 
                 name="password" 
                 required
                 value={formData.password} 
@@ -135,7 +135,7 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Goverment id:
+        <label>Identity:
                 <input type="text" 
                 name="govermentId" 
                 required
