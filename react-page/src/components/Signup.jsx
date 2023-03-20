@@ -122,7 +122,9 @@ function Signup() {
                 <input type="text" 
                 name="phone" 
                 value={formData.phone} 
-                onChange={handleChange} />
+                onChange={handleChange}
+                pattern="0[0-9]{9}" 
+                />
             </label>
         <br/>
             <label>Email:
@@ -137,7 +139,8 @@ function Signup() {
                 <input type="text" 
                 name="govermentId" 
                 required
-                value={formData.govermentId} 
+                value={formData.govermentId}
+                pattern="[0-9]{13}"
                 onChange={handleChange} />
             </label>
         <br/>

@@ -5,6 +5,8 @@ import '../Css/Product.css';
 
 function BuyForm(props) {
 
+  const userDatas = window.localStorage.getItem("user")
+  console.log(JSON.parse(userDatas));
   let user = props.userData ;
   if (!user) {
     user={
@@ -42,7 +44,7 @@ useEffect(()=>{
   // if sucess put data in to packageData by setBuyData, using useState
   .then(res=>{
     console.log(res.data.data);
-    setPackage(res.data.data)
+    setPackage(res.data.data);
   })
   // if fail alert
   .catch((err)=>{
@@ -63,6 +65,7 @@ useEffect(()=>{
     e.preventDefault();
     console.log(buyData);
     if (props.draftId) {
+      console.log(props.draftId);
       axios.put('http://tip.test/api/buy/'+ props.draftId, buyData)
       .then(()=>{
         alert("Thank you for purchase");
@@ -73,9 +76,8 @@ useEffect(()=>{
       alert("something error please contact our staff")
       })
       
-    }
-
-    axios.post('http://tip.test/api/buy',buyData)
+    }else{
+      axios.post('http://tip.test/api/buy',buyData)
     .then(()=>{
       setBuyData(buyData)
       alert("Thank you for purchase");
@@ -85,12 +87,15 @@ useEffect(()=>{
       console.log(err);
     alert("something error please contact our staff")
     })
+
+    }
+    
   };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setBuyData({ ...buyData, [name]: value });
-
+    
     // If the start date field changes, calculate the end date
     if (name === "startDate") {
       const startDate = new Date(value);
@@ -245,17 +250,23 @@ useEffect(()=>{
             required/>
         </label>
     <br/>
+    <h5>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h5>
+    <br/>
+
     <label>Beneficial:
             <input type="text"
             name="beneficial" 
-            defaultValue={buyData.beneficial} 
+            defaultValue={!buyData.beneficial?"ทายาทตามกฏหมาย":`${buyData.beneficial}`} 
             required
             onChange={handleChange} />
         </label>
     <br/>
       <button type="submit">Buy</button>
       </form>
-      {!props.userData && <button onClick={saveDraf}>Save Draft</button>}
+      {props.userData && <button onClick={saveDraf}>Save Draft</button>}
+      <button onClick={saveDraf}>Cancle</button>
+
+
     </div>
   )
 }

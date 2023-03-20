@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from 'axios';
 import '../Css/Login.css';
 
 function Login(props) {
 
-    const navigate = useNavigate();
 
     const [loginData, setLoginData] = useState({
         username: '',
@@ -32,19 +31,9 @@ function Login(props) {
             console.log(err)
         })
       };
-
-      const goToSignup = e => {
-        navigate("/signup");
-      };
     
-
     return (
     <div>
-
-      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600" />
-
-
-
         <form onSubmit={handleSubmit}>
         <label>Username:
             <input type="text" 

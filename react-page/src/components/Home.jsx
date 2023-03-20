@@ -45,16 +45,17 @@ console.log(window.localStorage.getItem("user"));
       <div className="package-container">
         {packageData.map((pkg) => (
           <div key={pkg.id}>
-            <Link to="/buyForm">
             <h2>{pkg.title}</h2>
             <p>Premium: {pkg.premium}</p>
             <p>Insurance Details: {pkg.insuranceDetail}</p>
-
-            </Link>
           </div>
         ))}
       </div>
       <br />
+
+      <Link to="/buyForm">
+      <button>Own your product</button> 
+      </Link>
     </div>
   )
 }
