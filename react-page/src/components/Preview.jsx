@@ -1,8 +1,31 @@
 import axios from 'axios';
+import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import BuyForm from './BuyForm';
 
+
 function Preview (props) {
+
+  const buyData = props.buyData
+  const [buyDatas, setBuyData] = useState({
+    userId: '' ,
+    packageId:'',
+    prefix: '',
+    name: '',
+    lastname: '',
+    govermentId: '',
+    address:'',
+    sub_district: '',
+    district: '',
+    provience: '',
+    postcode:'',
+    email: '',
+    dob: '',
+    startDate:'',
+    endDate:'',
+    beneficial:'',
+    OrderStatus:1,
+  });
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -41,8 +64,8 @@ return(
 
   <form onSubmit={handleSubmit}>
     {/* Rest of the form code */}  
-    <button type="submit" onClick={handleSave}>Confirm</button>
-    <button type="button" onClick={handleSave}>Save</button>
+    <button type="submit" onClick={""}>Confirm</button>
+    <button type="button" onClick={""}>Save</button>
     <button type="button" ><Link to="/">Cancel</Link></button>
   </form>
 </div>

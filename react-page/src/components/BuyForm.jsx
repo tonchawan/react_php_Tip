@@ -7,7 +7,7 @@ function BuyForm(props) {
 
   let user = props.userData ;
 
-  
+
   if (!user) {
     user={
       "id": '',
@@ -72,9 +72,8 @@ useEffect(()=>{
   
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(buyData);
+   
     if (props.draftId) {
-      console.log(props.draftId);
       axios.put('http://tip.test/api/buy/'+ props.draftId, buyData)
       .then(()=>{
         alert("Thank you for purchase");
@@ -121,7 +120,7 @@ useEffect(()=>{
     axios.post('http://tip.test/api/saveDraf',buyData)
     .then(()=>{
       setBuyData(buyData)
-      alert("Thank you for purchase");
+      alert("Save draft complete");
     })
     .catch((err)=>{
       console.log(err);
@@ -152,6 +151,7 @@ useEffect(()=>{
                     <option value="Mr. Boy">Mr. Boy</option>
                     <option value="Miss">Miss</option>
                     <option value="Girl">Girl</option>
+                    <option value="Khun">Khun</option>
                 </select>
             </label>
     <br/>
@@ -255,6 +255,7 @@ useEffect(()=>{
             name="endDate" 
             defaultValue={buyData.endDate}
             min={buyData.startDate}
+            readOnly
             onChange={handleChange} 
             required/>
         </label>

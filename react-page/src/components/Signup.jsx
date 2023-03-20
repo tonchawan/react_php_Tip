@@ -26,13 +26,11 @@ function Signup() {
         axios.post('http://tip.test/api/tip/register',formData)
         .then(()=>{
             setFormData(formData)
-            console.log(formData);
             navigate("/login");
         })
         .catch((err)=>{
             alert('Some thing error maybe You data is duplicate')
             console.log(err)
-            console.log(formData);
         })
       };
 
@@ -75,6 +73,7 @@ function Signup() {
                     <option value="Mr. Boy">Mr. Boy</option>
                     <option value="Miss">Miss</option>
                     <option value="Girl">Girl</option>
+                    <option value="Khun">Khun</option>
                 </select>
             </label>
         <br/>
@@ -110,7 +109,7 @@ function Signup() {
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Provience:
+        <label>Province:
                 <input type="text" 
                 name="provience" 
                 required

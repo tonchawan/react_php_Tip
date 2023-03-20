@@ -7,7 +7,7 @@ import Signup from './components/Signup';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import UserPackageList from './components/UserPackageList';
-import Preview from './components/Preview';
+// import Preview from './components/Preview';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     setUserData(JSON.parse(window.localStorage.getItem("user")))
   },[]
   )
-  console.log(userData);
+
 
   return (
   <html>
@@ -35,7 +35,7 @@ function App() {
   
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/preview' element={<Preview />} />
+          <Route path='/preview' element={<Home />} />
           <Route path='/login' element={<Login setUserData={setUserData} />} />
           <Route path='/signup' element={<Signup />} />
           <Route path="/buyForm" element={<BuyForm userData={userData} draftId ={draftId}/>}/>

@@ -4,7 +4,6 @@ import axios from 'axios';
 import '../Css/Signup.css';
 
 function UserProfile(props) {
-    console.log(props.userData);
 
     const navigate = useNavigate();
 
@@ -29,7 +28,7 @@ function UserProfile(props) {
         .then((res)=>{
             setFormData(formData)
             window.localStorage.setItem("user", JSON.stringify(user))
-            alert('Infomatio change')
+            alert('Information change')
         })
         .catch((err)=>{
             alert('Some thing error maybe You data is duplicate')
@@ -55,7 +54,7 @@ return (
         <div>
         <p>Username :{user.username}</p>   
         <br/>
-        <p>Register Date :{user.create_at}</p>   
+        <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
         </div>
         <form onSubmit={handleSubmit}>
             
@@ -98,7 +97,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Provience:
+        <label>Province:
                 <input type="text" 
                 name="provience" 
                 required
@@ -110,7 +109,8 @@ return (
                 <input type="text" 
                 name="phone"
                 required
-                defaultValue={user.phone} 
+                defaultValue={user.phone}
+                pattern="0[0-9]{9}" 
                 onChange={handleChange} />
             </label>
         <br/>
@@ -126,7 +126,8 @@ return (
                 <input type="text" 
                 name="govermentId"
                 required 
-                value={user.govermentId} 
+                value={user.govermentId}
+                pattern="[0-9]{13}"
                 onChange={handleChange} />
             </label>
         <br/>

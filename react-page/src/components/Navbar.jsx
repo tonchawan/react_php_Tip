@@ -10,7 +10,6 @@ function Navbar(props) {
         // navigate("/");
         window.location.href="/login";
     }
-    console.log(props.userData);
 
 
 
