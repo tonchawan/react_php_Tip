@@ -6,6 +6,7 @@ import '../Css/Product.css';
 function BuyForm(props) {
 
   let user = props.userData ;
+  console.log(user);
 
 
   if (!user) {
@@ -19,7 +20,6 @@ function BuyForm(props) {
       "district" : '',
       "provience" : '',
       "email" : '',
-      "beneficial" : ''
     }
   }
 
@@ -38,11 +38,11 @@ function BuyForm(props) {
     district: user.district,
     provience: user.provience,
     postcode:'',
-    email: user.name,
+    email: user.email,
     dob: '',
     startDate:'',
     endDate:'',
-    beneficial:user.beneficial,
+    beneficial:'ทายาทตามกฏหมาย',
     OrderStatus:1,
   });
 
@@ -64,6 +64,8 @@ useEffect(()=>{
     axios.get('http://tip.test/api/getOrder/'+props.draftId)
       .then((res)=>{
         setBuyData(res.data.data)
+
+        console.log(res.data.data)
       })
     
   }
@@ -94,10 +96,38 @@ useEffect(()=>{
     .catch((err)=>{
       console.log(err);
     alert("something error please contact our staff")
+    navigate("/");
     })
+    }   
+  };
 
+  const saveDraf = e => {
+    if (props.draftId) {
+      axios.put('http://tip.test/api/updateDraf/' + props.draftId,buyData)
+    .then(()=>{
+      setBuyData(buyData)
+      alert("Save draft complete");
+      navigate("/");
+    })
+    .catch((err)=>{
+      console.log(err);
+    alert("something error please contact our staff")
+    navigate("/");
+    })
+ 
+    }else{
+      axios.post( 'http://tip.test/api/saveDraf'  ,buyData)
+    .then(()=>{
+      setBuyData(buyData)
+      alert("Save draft complete");
+      navigate("/");
+    })
+    .catch((err)=>{
+      console.log(err);
+    alert("something error please contact our staff")
+    navigate("/");
+    })
     }
-    
   };
 
   const handleChange = e => {
@@ -115,19 +145,6 @@ useEffect(()=>{
   const toHome =()=> {
     navigate("/");
   };
-
-  const saveDraf = e => {
-    axios.post('http://tip.test/api/saveDraf',buyData)
-    .then(()=>{
-      setBuyData(buyData)
-      alert("Save draft complete");
-    })
-    .catch((err)=>{
-      console.log(err);
-    alert("something error please contact our staff")
-    })
-  };
-
 
   return (
     <div>

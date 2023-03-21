@@ -7,6 +7,7 @@ function UserProfile(props) {
 
     const navigate = useNavigate();
 
+    const user = JSON.parse(window.localStorage.getItem("user"));
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -20,7 +21,6 @@ function UserProfile(props) {
         email: '',   
         govermentId: '',     
       });
-      const user = props.userData
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -36,12 +36,6 @@ function UserProfile(props) {
         })
       };
 
-      const goToLogin = e => {
-        e.preventDefault();
-        navigate("/login");
-      };
-
-      
     
       const handleChange = e => {
         const { name, value } = e.target;
@@ -132,7 +126,6 @@ return (
             </label>
         <br/>
             <button type="submit">Edit Profile</button>
-            <button onClick={goToLogin}>Login</button>
         </form>
     </div>
     )

@@ -12,13 +12,13 @@ import Navbar from './components/Navbar';
 
 function App() {
 
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
   const [draftId, setDraftId] = useState();
 
   
   
   useEffect(()=>{
-
+    console.log("1234");
     setUserData(JSON.parse(window.localStorage.getItem("user")))
   },[]
   )

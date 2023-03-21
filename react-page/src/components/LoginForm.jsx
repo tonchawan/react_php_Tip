@@ -34,6 +34,8 @@ function Login(props) {
     
     return (
     <div>
+
+      <img src='./userProfile.png' alt='Profile'/>
         <form onSubmit={handleSubmit}>
         <label>Username:
             <input type="text" 

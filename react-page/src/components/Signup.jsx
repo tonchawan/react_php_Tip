@@ -66,7 +66,7 @@ function Signup() {
             </label>
         <br/>
         <label>Prefix:
-                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange}>
+                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange} required>
                     <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>

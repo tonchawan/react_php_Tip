@@ -8,7 +8,7 @@ function UserPackageList(props) {
 
     const navigate = useNavigate();
 
-    const user = props.userData;
+    const user = JSON.parse(window.localStorage.getItem("user"));
     const [packageList, setPackageList] = useState([]);
 
 
@@ -28,14 +28,8 @@ function UserPackageList(props) {
 
     const editDraft =(id)=>{
        props.setDraftId(id);
-       navigate('/buyform')
-
-       
+       navigate('/buyform')      
     }
-
-
-    
-
 
     return(
         <div className=''>
@@ -44,17 +38,12 @@ function UserPackageList(props) {
             <br/>
             <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
         </div>
-        <div>
-           
-           
-     
+        <div> 
 
     <title>Insurance Report</title>
     </div>
     <div>
         <h3>Package Datail </h3>
-
-
         <table>
             <thead>
                 <tr>
@@ -94,7 +83,7 @@ function UserPackageList(props) {
 
 
     <div>
-        <button ><a href={`http://tip.test/api/report/${user.id}`}>Get report</a></button>
+    <a href={`http://tip.test/api/report/${user.id}`}><button >Get report</button></a>
     </div>
 </div>
     )  
