@@ -23,11 +23,13 @@ function UserProfile(props) {
       });
 
     const handleSubmit = e => {
+
+        console.log(props.userData, "X");
         e.preventDefault();
-        axios.put('http://tip.test/api/tip/register/' + user.id,user)
+        axios.put('http://tip.test/api/tip/register/' + user.id,props.userData)
         .then((res)=>{
             setFormData(formData)
-            window.localStorage.setItem("user", JSON.stringify(user))
+            window.localStorage.setItem("user", JSON.stringify(props.userData))
             alert('Information change')
         })
         .catch((err)=>{
@@ -52,11 +54,11 @@ return (
         </div>
         <form onSubmit={handleSubmit}>
             
-            <label>Prefix:
-                <input type="text" 
-                name="prefix" 
-                defaultValue={user.prefix} 
-                onChange={handleChange} />
+            <label> <span>*</span>Prefix:
+                    <input type="text" 
+                    name="prefix" 
+                    defaultValue={user.prefix} 
+                    onChange={handleChange} />
             </label>
         <br/>
             <label>First Name:
@@ -120,7 +122,7 @@ return (
                 <input type="text" 
                 name="govermentId"
                 required 
-                value={user.govermentId}
+                defaultValue={user.govermentId}
                 pattern="[0-9]{13}"
                 onChange={handleChange} />
             </label>
