@@ -61,7 +61,7 @@ return (
                     onChange={handleChange} />
             </label>
         <br/>
-            <label>First Name:
+            <label><span>*</span>First Name:
                 <input type="text" 
                 required
                 name="name" 
@@ -69,7 +69,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-            <label>Last Name:
+            <label><span>*</span>Last Name:
                 <input type="text"
                 required 
                 name="lastname" 
@@ -77,7 +77,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Sub District:
+        <label><span>*</span>Sub District:
                 <input type="text" 
                 name="sub_district" 
                 required
@@ -85,7 +85,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>District:
+        <label><span>*</span>District:
                 <input type="text" 
                 name="district"
                 required
@@ -93,7 +93,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Province:
+        <label><span>*</span>Province:
                 <input type="text" 
                 name="provience" 
                 required
@@ -104,13 +104,12 @@ return (
             <label>Phone Number:
                 <input type="text" 
                 name="phone"
-                required
                 defaultValue={user.phone}
                 pattern="0[0-9]{9}" 
                 onChange={handleChange} />
             </label>
         <br/>
-            <label>Email:
+            <label><span>*</span>Email:
                 <input type="email" 
                 name="email"
                 required 
@@ -118,7 +117,7 @@ return (
                 onChange={handleChange} />
             </label>
         <br/>
-        <label>Identity:
+        <label><span>*</span>Identity:
                 <input type="text" 
                 name="govermentId"
                 required 

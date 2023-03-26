@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import '../Css/Product.css';
+import '../Css/BuyForm.css';
 
 function BuyForm(props) {
 
@@ -149,7 +149,8 @@ useEffect(()=>{
   return (
     <div>
       <form onSubmit={handleSubmit}>
-      <label>Product Name:
+       <label class='input-containner'  >
+        <span>*</span>Product Name:
         <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange} required> 
           <option disabled value="">Please Select Package</option>
           {packageData.map((pkg) => (  
@@ -159,8 +160,7 @@ useEffect(()=>{
           ))}
         </select>   
       </label>      
-    <br/>
-    <label>Prefix:
+     <label class='input-containner' > <span>*</span>Prefix:
                 <select id="prefix" name="prefix"  value={buyData.prefix} onChange={handleChange}required>
                     <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
@@ -171,26 +171,29 @@ useEffect(()=>{
                     <option value="Khun">Khun</option>
                 </select>
             </label>
-    <br/>
-        <label>Firstname:
-            <input type="text" 
-            name="name" 
-            defaultValue={buyData.name} 
-            onChange={handleChange} 
-            required
-            />
-        </label>
-    <br/>
-        <label>Lastname:
-            <input type="text" 
-            name="lastname" 
-            defaultValue={buyData.lastname} 
-            onChange={handleChange} 
-            required
-            />
-        </label>
-    <br/>
-        <label>Identity:
+
+    <div class="input-group mb-3" >
+      <div class='input-containner'> <span>*</span>Firstname:
+          <input type="text" class="form-control"
+          name="name" 
+          defaultValue={buyData.name} 
+          onChange={handleChange} 
+          required
+          />
+      </div>
+            
+      <div class='input-containner'> <span>*</span>Lastname:
+          <input type="text" class="form-control"
+          name="lastname" 
+          defaultValue={buyData.lastname} 
+          onChange={handleChange} 
+          required
+          />
+      </div>
+    </div>
+        
+   
+         <label class='input-containner'><span>*</span>Identity:
             <input type="text" 
             name="govermentId" 
             defaultValue={buyData.govermentId} 
@@ -199,7 +202,7 @@ useEffect(()=>{
             />
         </label>
     <br/>
-    <label>Address:
+     <label class='input-containner'><span>*</span>Address:
                 <input type="text" 
                 name="address" 
                 defaultValue={buyData.address} 
@@ -207,7 +210,7 @@ useEffect(()=>{
                 required/>
             </label>
         <br/>
-    <label>Sub District:
+     <label class='input-containner'><span>*</span>Sub District:
                 <input type="text" 
                 name="sub_district" 
                 defaultValue={buyData.sub_district} 
@@ -215,7 +218,7 @@ useEffect(()=>{
                 required/>
             </label>
         <br/>
-        <label>District:
+         <label class='input-containner'><span>*</span>District:
                 <input type="text" 
                 name="district" 
                 defaultValue={buyData.district} 
@@ -223,7 +226,7 @@ useEffect(()=>{
                 required />
             </label>
         <br/>
-        <label>Province:
+         <label class='input-containner'><span>*</span>Province:
                 <input type="text" 
                 name="provience" 
                 defaultValue={buyData.provience} 
@@ -231,7 +234,7 @@ useEffect(()=>{
                 required/>
             </label>
         <br/>
-        <label>Zip Code:
+         <label class='input-containner'><span>*</span>Zip Code:
                 <input type="text" 
                 name="postcode" 
                 defaultValue={buyData.postcode} 
@@ -239,7 +242,7 @@ useEffect(()=>{
                 required/>
             </label>
         <br/>
-        <label>Email:
+         <label class='input-containner'><span>*</span>Email:
             <input type="email"
             name="email" 
             defaultValue={buyData.email} 
@@ -247,7 +250,7 @@ useEffect(()=>{
             required/>
         </label>
     <br/>
-        <label>Date of birth:
+         <label class='input-containner'><span>*</span>Date of birth:
             <input type="date"
             name="dob" 
             max={ new Date().toISOString().split('T')[0]}
@@ -256,7 +259,7 @@ useEffect(()=>{
             required/>
         </label>
     <br/>
-    <label>Start Date:
+     <label class='input-containner'><span>*</span>Start Date:
             <input type="date"
             name="startDate" 
             min={ new Date().toISOString().split('T')[0]}
@@ -267,7 +270,7 @@ useEffect(()=>{
             
         </label>
     <br/>
-    <label>End Date:
+     <label class='input-containner'><span>*</span>End Date:
             <input type="date"
             name="endDate" 
             defaultValue={buyData.endDate}
@@ -277,10 +280,10 @@ useEffect(()=>{
             required/>
         </label>
     <br/>
-    <h5>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h5>
+    <h5 class='input-containner'>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h5>
     <br/>
 
-    <label>Beneficial:
+     <label class='input-containner'><span>*</span>Beneficial:
             <input type="text"
             name="beneficial" 
             defaultValue={!buyData.beneficial?"ทายาทตามกฏหมาย":`${buyData.beneficial}`} 
@@ -298,3 +301,5 @@ useEffect(()=>{
   )
 }
   export default BuyForm;
+
+  

@@ -46,8 +46,6 @@ function Signup() {
     return (
         <div>
 
-        <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600" />
-
         <form onSubmit={handleSubmit}>
             <label>Username:
                 <input type="text" 
@@ -66,7 +64,8 @@ function Signup() {
             </label>
         <br/>
         <label>Prefix:
-                <select id="prefix" name="prefix" defaultValue={""} onChange={handleChange} required>
+                <select class="form-select" aria-label="Default select example"
+                id="prefix" name="prefix" defaultValue={""} onChange={handleChange} required>
                     <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>

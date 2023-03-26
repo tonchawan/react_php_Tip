@@ -1,43 +1,20 @@
-/* Login.css */
 
-/* Form styling */
-form {
+  .login-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center; /* centers child elements horizontally */
+    align-items: center; /* centers child elements vertically */
+    height: 100vh; /* sets the height of the container to the full viewport height */
+  }
+
+  .login-container {
+    display: flex;
     justify-content: center;
-    margin: 2rem auto;
+    align-items: center;
+    height: 100vh;
   }
   
-  label {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 0;
+  .login-container img {
+    margin: 7%;
+    /* add any additional styles for the image here */
   }
   
-  input[type="email"],
-  input[type="text"] {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    margin-top: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  button[type="submit"],
-  button {
-    padding: 0.5rem 2rem;
-    border-radius: 5px;
-    border: none;
-    margin-top: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  button[type="submit"]:hover,
-  button:hover {
-    background-color: #0062cc;
-  }

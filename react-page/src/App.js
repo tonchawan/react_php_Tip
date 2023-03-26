@@ -48,8 +48,9 @@ function App() {
       
 
     </body>
+    
 
-    <footer class="blockquote-footer">For more infomation please contact : tonchawan@hotmail.com <cite title="Source Title"></cite></footer>
+    <footer class="blockquote-footer fixed-bottom">For more infomation please contact : tonchawan@hotmail.com <cite title="Source Title"></cite></footer>
 
   </html>
 

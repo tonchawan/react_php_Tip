@@ -17,7 +17,7 @@ body {
   nav button {
     font-size: 16px;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
     border: none;
     background-color: #333;
@@ -26,9 +26,7 @@ body {
     transition: background-color 0.3s ease-in-out;
   }
   
-  nav button:hover {
-    background-color: #555;
-  }
+
   
   .container {
     max-width: 800px;

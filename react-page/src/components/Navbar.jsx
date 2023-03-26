@@ -21,14 +21,13 @@ function Navbar(props) {
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <Link to="/" class="nav-link">Home <span class="sr-only">(current)</span></Link>
-      </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <Link to="/" class="dropdown-item">Home </Link>
             {props.userData &&<Link to="/user" class="dropdown-item" >Profile</Link>}
             {props.userData &&<Link to="/list" class="dropdown-item" >History</Link>}
             {props.userData &&<Link to="/login" class="dropdown-item" onClick={logOut} >Log Out</Link>}     

@@ -33,20 +33,23 @@ function Login(props) {
       };
     
     return (
-    <div>
+    <div className="login-container text-center">
 
-      <img src='./userProfile.png' alt='Profile'/>
-        <form onSubmit={handleSubmit}>
-        <label>Username:
-            <input type="text" 
-            name="username"
+      <img src='./userProfile.png' alt='Profile' class="img-fluid"/>
+
+      <div>
+      <form onSubmit={handleSubmit}>
+        
+        <label class="form-label" >Username:
+            <input type="text" class="form-control " id="exampleFormControlInput1" aria-label="default input example"
+            name="username" 
             required
             value={loginData.username} 
             onChange={handleChange} />
         </label>
     <br/>
-        <label>Password:
-            <input type="password" 
+        <label class="form-label" >Password:
+            <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" aria-label="default input example"
             name="password" 
             required
             value={loginData.password} 
@@ -56,6 +59,10 @@ function Login(props) {
         <button type="submit">Login</button>
     </form>
         <Link to={'/signup'}>Register</Link>
+
+
+      </div>
+        
         
 </div>
       )

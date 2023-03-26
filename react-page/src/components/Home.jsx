@@ -34,14 +34,6 @@ console.log(window.localStorage.getItem("user"));
   return (
     <div>
 
-      {/* <nav>
-        <h1>Hi There</h1>
-        <div>
-            <button onClick={goToSignup}>Signup</button>
-            <button onClick={goToLogin}>Login</button>
-        </div>
-      </nav> */}
-
       <div className="package-container">
         {packageData.map((pkg) => (
           <div key={pkg.id}>
