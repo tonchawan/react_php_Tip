@@ -33,12 +33,12 @@ function UserPackageList(props) {
 
     return(
         <div className=''>
-        <div> 
+        <div className='head-detail' > 
             <p>Username :{user.username}</p>   
             <br/>
             <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
         </div>
-        <div> 
+    <div> 
 
     <title>Insurance Report</title>
     </div>

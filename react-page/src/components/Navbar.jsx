@@ -18,15 +18,14 @@ function Navbar(props) {
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <ul class="navbar-nav mr-auto">
       
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
+        <a class="nav-link dropdown-toggle top-0 end-0 dropstart" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          menu
         </a>
-        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link to="/" class="dropdown-item">Home </Link>
             {props.userData &&<Link to="/user" class="dropdown-item" >Profile</Link>}
             {props.userData &&<Link to="/list" class="dropdown-item" >History</Link>}
@@ -37,6 +36,8 @@ function Navbar(props) {
       </li>
     </ul>
   </div>
+    
+  
 </nav>
 
     )

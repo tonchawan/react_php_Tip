@@ -147,157 +147,158 @@ useEffect(()=>{
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-       <label class='input-containner'  >
-        <span>*</span>Product Name:
+ <div style={{display:"flex", justifyContent:"center"}}>
+<div class="container" >
+  <form onSubmit={handleSubmit}>
+    <label class='input-containner form-label'  >
+      <mark className='star'>*</mark>Product Name:
         <select type="option" name="packageId" value={buyData.packageId} onChange={handleChange} required> 
           <option disabled value="">Please Select Package</option>
           {packageData.map((pkg) => (  
-              <option value={pkg.id} key={pkg.id}>
-                  {pkg.title}
-              </option>
+            <option value={pkg.id} key={pkg.id}>
+                {pkg.title}
+            </option>
           ))}
-        </select>   
-      </label>      
-     <label class='input-containner' > <span>*</span>Prefix:
-                <select id="prefix" name="prefix"  value={buyData.prefix} onChange={handleChange}required>
-                    <option disabled value="">Title</option>
-                    <option value="Mr.">Mr.</option>
-                    <option value="Mrs.">Mrs.</option>
-                    <option value="Mr. Boy">Mr. Boy</option>
-                    <option value="Miss">Miss</option>
-                    <option value="Girl">Girl</option>
-                    <option value="Khun">Khun</option>
-                </select>
-            </label>
-
+      </select>   
+    </label>      
+    
     <div class="input-group mb-3" >
-      <div class='input-containner'> <span>*</span>Firstname:
-          <input type="text" class="form-control"
-          name="name" 
-          defaultValue={buyData.name} 
-          onChange={handleChange} 
-          required
-          />
-      </div>
+      <label class='input-containner form-label' > <mark className='star'>*</mark>Prefix:
+          <select id="prefix" name="prefix"  value={buyData.prefix} onChange={handleChange}required>
+          <option disabled value="">Title</option>
+          <option value="Mr.">Mr.</option>
+          <option value="Mrs.">Mrs.</option>
+          <option value="Mr. Boy">Mr. Boy</option>
+          <option value="Miss">Miss</option>
+          <option value="Girl">Girl</option>
+          <option value="Khun">Khun</option>
+        </select>
+      </label>
+
+      <label class='input-containner'> <mark className='star'>*</mark>Firstname:
+        <input class="form-control text-center" type="text" 
+        name="name" 
+        defaultValue={buyData.name} 
+        onChange={handleChange} 
+        required/>
+      </label>
             
-      <div class='input-containner'> <span>*</span>Lastname:
-          <input type="text" class="form-control"
+      <label class='input-containner'> <mark className='star'>*</mark>Lastname:
+        <input class="form-control text-center" type="text"
           name="lastname" 
           defaultValue={buyData.lastname} 
           onChange={handleChange} 
-          required
-          />
-      </div>
+          required/>
+      </label>
     </div>
         
-   
-         <label class='input-containner'><span>*</span>Identity:
-            <input type="text" 
-            name="govermentId" 
-            defaultValue={buyData.govermentId} 
-            onChange={handleChange} 
-            required
-            />
-        </label>
-    <br/>
-     <label class='input-containner'><span>*</span>Address:
-                <input type="text" 
-                name="address" 
-                defaultValue={buyData.address} 
-                onChange={handleChange} 
-                required/>
-            </label>
-        <br/>
-     <label class='input-containner'><span>*</span>Sub District:
-                <input type="text" 
-                name="sub_district" 
-                defaultValue={buyData.sub_district} 
-                onChange={handleChange} 
-                required/>
-            </label>
-        <br/>
-         <label class='input-containner'><span>*</span>District:
-                <input type="text" 
-                name="district" 
-                defaultValue={buyData.district} 
-                onChange={handleChange}
-                required />
-            </label>
-        <br/>
-         <label class='input-containner'><span>*</span>Province:
-                <input type="text" 
-                name="provience" 
-                defaultValue={buyData.provience} 
-                onChange={handleChange} 
-                required/>
-            </label>
-        <br/>
-         <label class='input-containner'><span>*</span>Zip Code:
-                <input type="text" 
-                name="postcode" 
-                defaultValue={buyData.postcode} 
-                onChange={handleChange} 
-                required/>
-            </label>
-        <br/>
-         <label class='input-containner'><span>*</span>Email:
-            <input type="email"
-            name="email" 
-            defaultValue={buyData.email} 
-            onChange={handleChange} 
-            required/>
-        </label>
-    <br/>
-         <label class='input-containner'><span>*</span>Date of birth:
-            <input type="date"
-            name="dob" 
-            max={ new Date().toISOString().split('T')[0]}
-            defaultValue={buyData.dob} 
-            onChange={handleChange} 
-            required/>
-        </label>
-    <br/>
-     <label class='input-containner'><span>*</span>Start Date:
-            <input type="date"
-            name="startDate" 
-            min={ new Date().toISOString().split('T')[0]}
-            defaultValue={buyData.startDate} 
-            onChange={handleChange} 
-            required
-            />
-            
-        </label>
-    <br/>
-     <label class='input-containner'><span>*</span>End Date:
-            <input type="date"
-            name="endDate" 
-            defaultValue={buyData.endDate}
-            min={buyData.startDate}
-            readOnly
-            onChange={handleChange} 
-            required/>
-        </label>
-    <br/>
-    <h5 class='input-containner'>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h5>
-    <br/>
+    <label class='input-containner form-label'><mark className='star'>*</mark>Identity:
+      <input class="form-control text-center" type="text" 
+        name="govermentId" 
+        defaultValue={buyData.govermentId} 
+        onChange={handleChange} 
+        required/>
+    </label>
 
-     <label class='input-containner'><span>*</span>Beneficial:
-            <input type="text"
-            name="beneficial" 
-            defaultValue={!buyData.beneficial?"ทายาทตามกฏหมาย":`${buyData.beneficial}`} 
-            required
-            onChange={handleChange} />
-        </label>
-    <br/>
-      <button type="submit">Buy</button>
-      </form>
-      {props.userData && <button onClick={saveDraf}>Save Draft</button>}
-      <button onClick={toHome}>Cancle</button>
-
-
+    <div class="input-group mb-3" >
+      <label class='input-containner form-label'><mark className='star'>*</mark>Address:
+        <input class="form-control text-center" type="text" 
+          name="address" 
+          defaultValue={buyData.address} 
+          onChange={handleChange} 
+          required/>
+      </label>
+      
+      <label class='input-containner form-label'><mark className='star'>*</mark>Sub District:
+        <input class="form-control text-center" type="text" 
+          name="sub_district" 
+          defaultValue={buyData.sub_district} 
+          onChange={handleChange} 
+          required/>
+      </label>  
     </div>
+
+    <div class="input-group mb-3" >
+      <label class='input-containner form-label'><mark className='star'>*</mark>District:
+        <input class="form-control text-center" type="text" 
+          name="district" 
+          defaultValue={buyData.district} 
+          onChange={handleChange}
+          required />
+      </label>
+      <label class='input-containner form-label'><mark className='star'>*</mark>Province:
+        <input class="form-control text-center" type="text" 
+          name="provience" 
+          defaultValue={buyData.provience} 
+          onChange={handleChange} 
+          required/>
+      </label>  
+      <label class='input-containner form-label'><mark className='star'>*</mark>Zip Code:
+        <input class="form-control text-center" type="text" 
+          name="postcode" 
+          defaultValue={buyData.postcode} 
+          onChange={handleChange} 
+          required/>
+      </label>
+    </div>
+      
+    <label class='input-containner form-label'><mark className='star'>*</mark>Email:
+      <input class="form-control text-center" type="email"
+        name="email" 
+        defaultValue={buyData.email} 
+        onChange={handleChange} 
+        required/>
+    </label>
+  
+    <label class='input-containner form-label'><mark className='star'>*</mark>Date of birth:
+      <input class="form-control text-center" type="date"
+        name="dob" 
+        max={ new Date().toISOString().split('T')[0]}
+        defaultValue={buyData.dob} 
+        onChange={handleChange} 
+        required/>
+    </label>
+  
+    <div class="input-group mb-3" >
+      <label class='input-containner form-label'><mark className='star'  >*</mark>Start Date:
+        <input class="form-control text-center" type="date"
+          name="startDate" 
+          min={ new Date().toISOString().split('T')[0]}
+          defaultValue={buyData.startDate} 
+          onChange={handleChange} 
+          required/>  
+        </label>
+  
+      <label class='input-containner form-label'><mark className='star'>*</mark>End Date:
+        <input class="form-control text-center" type="date"
+          name="endDate" 
+          defaultValue={buyData.endDate}
+          min={buyData.startDate}
+          readOnly
+          onChange={handleChange} 
+          required/>
+      </label>
+    </div>
+    
+    <h3 class='input-containner'>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h3>
+    <br/>
+  
+    <label class='input-containner form-label'><mark className='star'>*</mark>Beneficial:
+      <input class="form-control text-center" type="text"
+        name="beneficial" 
+        defaultValue={!buyData.beneficial?"ทายาทตามกฏหมาย":`${buyData.beneficial}`} 
+        required
+        onChange={handleChange} />
+    </label>
+  
+    <div class="d-grid gap-2 d-md-block">
+    <button type="submit" class="btn btn-dark btn-lg" >Buy</button>
+    </div>
+  </form>
+      {props.userData && <button onClick={saveDraf} class="btn btn-dark">Save Draft</button>}
+      <button onClick={toHome} class="btn btn-dark" >Cancle</button>
+  </div>
+</div>
   )
 }
   export default BuyForm;

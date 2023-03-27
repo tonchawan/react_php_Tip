@@ -40,7 +40,7 @@ function Login(props) {
       <div>
       <form onSubmit={handleSubmit}>
         
-        <label class="form-label" >Username:
+        <label class="form-label" ><mark className='star'>*</mark>Username:
             <input type="text" class="form-control " id="exampleFormControlInput1" aria-label="default input example"
             name="username" 
             required
@@ -48,7 +48,7 @@ function Login(props) {
             onChange={handleChange} />
         </label>
     <br/>
-        <label class="form-label" >Password:
+        <label class="form-label" ><mark className='star'>*</mark>Password:
             <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" aria-label="default input example"
             name="password" 
             required

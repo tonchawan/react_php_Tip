@@ -26,11 +26,14 @@ body {
     transition: background-color 0.3s ease-in-out;
   }
   
-
+  .star{
+    color: red;
+    background-color:rgb(115, 115, 115);
+  }
   
   .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 950px;
+    margin: 10%;
   }
   
   .container h1 {
@@ -39,12 +42,12 @@ body {
   }
   
   .container p {
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 10px;
   }
   
   form label {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
     display: block;
   }
@@ -106,4 +109,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh; /* set the height to 80% of the viewport height */
+  }
+
+  .head-detail{
+    margin-left: 5%;
   }
