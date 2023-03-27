@@ -46,8 +46,8 @@ function UserProfile(props) {
 
 return (
 
-    <div >
-        <div className='head-detail'>
+<div >
+    <div className='head-detail'>
         <p>Username :{user.username}</p>   
         <br/>
         <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
@@ -57,31 +57,36 @@ return (
             <form onSubmit={handleSubmit} class="container">
                 
             <div class="input-group mb-3" >
-                <label class='input-containner form-label'> <mark className='star'>*</mark>Prefix:
-                        <input class="form-control text-center" type="text" 
-                        name="prefix" 
-                        defaultValue={user.prefix} 
-                        onChange={handleChange} />
-                </label>
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>Prefix:
+                <input class="form-control text-center" type="text" 
+                name="prefix" 
+                defaultValue={user.prefix} 
+                onChange={handleChange} />
+            </label>
             <br/>
-                <label class='input-containner form-label'><mark className='star'>*</mark>First Name:
-                    <input class="form-control text-center" type="text" 
-                    required
-                    name="name" 
-                    defaultValue={user.name} 
-                    onChange={handleChange} />
-                </label>
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>First Name:
+                <input class="form-control text-center" type="text" 
+                required
+                name="name" 
+                defaultValue={user.name} 
+                onChange={handleChange} />
+            </label>
             <br/>
-                <label class='input-containner form-label'><mark className='star'>*</mark>Last Name:
-                    <input class="form-control text-center" type="text"
-                    required 
-                    name="lastname" 
-                    defaultValue={user.lastname} 
-                    onChange={handleChange} />
-                </label>
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>Last Name:
+                <input class="form-control text-center" type="text"
+                required 
+                name="lastname" 
+                defaultValue={user.lastname} 
+                onChange={handleChange} />
+            </label>
             </div>
             <br/>
-            <label class='input-containner form-label'><mark className='star'>*</mark>Identity:
+
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>Identity:
                     <input class="form-control text-center" type="text" 
                     name="govermentId"
                     required 
@@ -98,7 +103,8 @@ return (
                     onChange={handleChange} />
                 </label>
             <br/>
-            <label class='input-containner form-label'><mark className='star'>*</mark>Sub District:
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>Sub District:
                     <input class="form-control text-center" type="text" 
                     name="sub_district" 
                     required
@@ -106,7 +112,8 @@ return (
                     onChange={handleChange} />
                 </label>
             <br/>
-            <label class='input-containner form-label'><mark className='star'>*</mark>District:
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>District:
                     <input class="form-control text-center" type="text" 
                     name="district"
                     required
@@ -114,7 +121,8 @@ return (
                     onChange={handleChange} />
                 </label>
             <br/>
-            <label class='input-containner form-label'><mark className='star'>*</mark>Province:
+            <label class='input-containner form-label'>
+                <mark className='star'>*</mark>Province:
                     <input class="form-control text-center" type="text" 
                     name="provience" 
                     required

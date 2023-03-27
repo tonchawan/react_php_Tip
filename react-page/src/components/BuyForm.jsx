@@ -163,7 +163,8 @@ useEffect(()=>{
     </label>      
     
     <div class="input-group mb-3" >
-      <label class='input-containner form-label' > <mark className='star'>*</mark>Prefix:
+      <label class='input-containner form-label' >
+        <mark className='star'>*</mark>Prefix:
           <select id="prefix" name="prefix"  value={buyData.prefix} onChange={handleChange}required>
           <option disabled value="">Title</option>
           <option value="Mr.">Mr.</option>
@@ -175,7 +176,8 @@ useEffect(()=>{
         </select>
       </label>
 
-      <label class='input-containner'> <mark className='star'>*</mark>Firstname:
+      <label class='input-containner'>
+        <mark className='star'>*</mark>Firstname:
         <input class="form-control text-center" type="text" 
         name="name" 
         defaultValue={buyData.name} 
@@ -183,7 +185,8 @@ useEffect(()=>{
         required/>
       </label>
             
-      <label class='input-containner'> <mark className='star'>*</mark>Lastname:
+      <label class='input-containner'>
+        <mark className='star'>*</mark>Lastname:
         <input class="form-control text-center" type="text"
           name="lastname" 
           defaultValue={buyData.lastname} 
@@ -192,7 +195,8 @@ useEffect(()=>{
       </label>
     </div>
         
-    <label class='input-containner form-label'><mark className='star'>*</mark>Identity:
+    <label class='input-containner form-label'>
+      <mark className='star'>*</mark>Identity:
       <input class="form-control text-center" type="text" 
         name="govermentId" 
         defaultValue={buyData.govermentId} 
@@ -201,7 +205,8 @@ useEffect(()=>{
     </label>
 
     <div class="input-group mb-3" >
-      <label class='input-containner form-label'><mark className='star'>*</mark>Address:
+      <label class='input-containner form-label'>
+        <mark className='star'>*</mark>Address:
         <input class="form-control text-center" type="text" 
           name="address" 
           defaultValue={buyData.address} 
@@ -209,7 +214,8 @@ useEffect(()=>{
           required/>
       </label>
       
-      <label class='input-containner form-label'><mark className='star'>*</mark>Sub District:
+      <label class='input-containner form-label'>
+        <mark className='star'>*</mark>Sub District:
         <input class="form-control text-center" type="text" 
           name="sub_district" 
           defaultValue={buyData.sub_district} 
@@ -219,21 +225,24 @@ useEffect(()=>{
     </div>
 
     <div class="input-group mb-3" >
-      <label class='input-containner form-label'><mark className='star'>*</mark>District:
+      <label class='input-containner form-label'>
+        <mark className='star'>*</mark>District:
         <input class="form-control text-center" type="text" 
           name="district" 
           defaultValue={buyData.district} 
           onChange={handleChange}
           required />
       </label>
-      <label class='input-containner form-label'><mark className='star'>*</mark>Province:
+      <label class='input-containner form-label'>
+        <mark className='star'>*</mark>Province:
         <input class="form-control text-center" type="text" 
           name="provience" 
           defaultValue={buyData.provience} 
           onChange={handleChange} 
           required/>
       </label>  
-      <label class='input-containner form-label'><mark className='star'>*</mark>Zip Code:
+      <label class='input-containner form-label'>
+        <mark className='star'>*</mark>Zip Code:
         <input class="form-control text-center" type="text" 
           name="postcode" 
           defaultValue={buyData.postcode} 
@@ -242,7 +251,8 @@ useEffect(()=>{
       </label>
     </div>
       
-    <label class='input-containner form-label'><mark className='star'>*</mark>Email:
+    <label class='input-containner form-label'>
+      <mark className='star'>*</mark>Email:
       <input class="form-control text-center" type="email"
         name="email" 
         defaultValue={buyData.email} 
@@ -250,7 +260,8 @@ useEffect(()=>{
         required/>
     </label>
   
-    <label class='input-containner form-label'><mark className='star'>*</mark>Date of birth:
+    <label class='input-containner form-label'>
+      <mark className='star'>*</mark>Date of birth:
       <input class="form-control text-center" type="date"
         name="dob" 
         max={ new Date().toISOString().split('T')[0]}
@@ -260,7 +271,8 @@ useEffect(()=>{
     </label>
   
     <div class="input-group mb-3" >
-      <label class='input-containner form-label'><mark className='star'  >*</mark>Start Date:
+      <label class='input-containner form-label'>
+        <mark className='star'  >*</mark>Start Date:
         <input class="form-control text-center" type="date"
           name="startDate" 
           min={ new Date().toISOString().split('T')[0]}
@@ -283,7 +295,8 @@ useEffect(()=>{
     <h3 class='input-containner'>Premium:{!buyData.packageId?"":`${packageData[buyData.packageId -1].premium}`}</h3>
     <br/>
   
-    <label class='input-containner form-label'><mark className='star'>*</mark>Beneficial:
+    <label class='input-containner form-label'>
+      <mark className='star'>*</mark>Beneficial:
       <input class="form-control text-center" type="text"
         name="beneficial" 
         defaultValue={!buyData.beneficial?"ทายาทตามกฏหมาย":`${buyData.beneficial}`} 

@@ -33,37 +33,41 @@ function Login(props) {
       };
     
     return (
-    <div className="login-container text-center">
+<div className="login-container text-center">
 
-      <img src='./userProfile.png' alt='Profile' class="img-fluid"/>
+  <img src='./userProfile.png' alt='Profile' class="img-fluid"/>
 
-      <div>
-      <form onSubmit={handleSubmit}>
+  <div>
+  <form onSubmit={handleSubmit}>
         
-        <label class="form-label" ><mark className='star'>*</mark>Username:
-            <input type="text" class="form-control " id="exampleFormControlInput1" aria-label="default input example"
-            name="username" 
-            required
-            value={loginData.username} 
-            onChange={handleChange} />
-        </label>
+    <label class="form-label" ><mark className='star'>*</mark>Username:
+      <input type="text"
+      class="form-control " 
+      id="exampleFormControlInput1" 
+      aria-label="default input example"
+      name="username" 
+      required
+      value={loginData.username} 
+      onChange={handleChange} />
+    </label>
     <br/>
-        <label class="form-label" ><mark className='star'>*</mark>Password:
-            <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" aria-label="default input example"
-            name="password" 
-            required
-            value={loginData.password} 
-            onChange={handleChange} />
-        </label>
+    <label class="form-label" ><mark className='star'>*</mark>Password:
+      <input type="password" 
+        id="inputPassword5" 
+        class="form-control" 
+        aria-labelledby="passwordHelpBlock" 
+        aria-label="default input example"
+        name="password" 
+        required
+        value={loginData.password} 
+        onChange={handleChange} />
+      </label>
     <br/>
-        <button type="submit">Login</button>
-    </form>
-        <Link to={'/signup'}>Register</Link>
+      <button type="submit">Login</button>
+  </form>
 
-
-      </div>
-        
-        
+    <Link to={'/signup'}>Register</Link>
+  </div>
 </div>
       )
 }
