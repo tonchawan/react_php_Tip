@@ -46,15 +46,12 @@ function UserProfile(props) {
 
 return (
 
-<div >
+<div className='proflie-bg' >
     <div className='head-detail'>
-        <p>Username :{user.username}</p>   
-        <br/>
-        <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
-        </div>
-
+        <p>Username :{user.username}<span style={{marginLeft : "20px"}}>Register Date :{user.created_at.toString().split("T")[0]}</span></p>
+    </div>
         <div style={{display:"flex", justifyContent:"center"}}>
-            <form onSubmit={handleSubmit} class="container">
+            <form onSubmit={handleSubmit} class="container" style={{backgroundColor:"#62b3ed"}}>
                 
             <div class="input-group mb-3" >
             <label class='input-containner form-label'>
@@ -140,7 +137,7 @@ return (
             <br/>
             
             
-                <button type="submit">Edit Profile</button>
+                <button className='btn btn-primary' type="submit">Edit Profile</button>
             </form>
         </div>
     </div>

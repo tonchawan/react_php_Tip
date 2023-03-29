@@ -147,7 +147,7 @@ useEffect(()=>{
   };
 
   return (
- <div style={{display:"flex", justifyContent:"center"}}>
+ <div className='buy-bg-img' style={{display:"flex", justifyContent:"center"}} >
 <div class="container" >
   <form onSubmit={handleSubmit}>
     <label class='input-containner form-label'  >

@@ -14,7 +14,18 @@
   }
   
   .login-container img {
-    margin: 7%;
-    /* add any additional styles for the image here */
+    margin-right: 7%;
+    max-width: 350px;
+    /* add any additional styles for the image here */ 
+    
+    
   }
+  .login-bg-image{
+    background-image:url(https://images.unsplash.com/photo-1680055199554-a39e82ebc6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80);
+    background-size: cover;
+    
+  }
+  
+
+ 
   

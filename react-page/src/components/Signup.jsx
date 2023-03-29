@@ -44,26 +44,32 @@ function Signup() {
       };
   
     return (
-        <div>
+<div className='bg-image' style={{display:"flex", justifyContent:"center"}}>
 
-        <form onSubmit={handleSubmit}>
-            <label>Username:
-                <input type="text" 
+    <div className='container'>
+        <form onSubmit={handleSubmit} style={{ width: "867px"}}>
+
+        <div class="input-group mb-3" >
+            <label class='input-containner form-label'>
+      <mark className='star'>*</mark>Username:
+                <input class="form-control text-center" type="text" 
                 name="username"
                 required
                 value={formData.username} 
                 onChange={handleChange} />
             </label>
         <br/>
-            <label>Password:
-                <input type="password" 
+            <label class='input-containner form-label'>
+            <mark className='star'>*</mark>Password:
+                <input class="form-control text-center" type="password" 
                 name="password" 
                 required
                 value={formData.password} 
                 onChange={handleChange} />
             </label>
-        <br/>
-        <label>Prefix:
+        
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Prefix:
                 <select class="form-select" aria-label="Default select example"
                 id="prefix" name="prefix" defaultValue={""} onChange={handleChange} required>
                     <option disabled value="">Title</option>
@@ -75,77 +81,96 @@ function Signup() {
                     <option value="Khun">Khun</option>
                 </select>
             </label>
+        </div>
+
         <br/>
-            <label>First Name:
-                <input type="text" 
+        <div class="input-group mb-3" >
+        
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>First Name:
+                <input class="form-control text-center" type="text" 
                 name="name"
                 required 
                 value={formData.name} 
                 onChange={handleChange} />
             </label>
-        <br/>
-            <label>Last Name:
-                <input type="text" 
+        
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Last Name:
+                <input class="form-control text-center" type="text" 
                 name="lastname"
                 required 
                 value={formData.lastname} 
                 onChange={handleChange} />
             </label>
-        <br/>
-        <label>Sub District:
-                <input type="text" 
-                name="sub_district" 
-                required
-                value={formData.sub_district} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-        <label>District:
-                <input type="text" 
-                name="district" 
-                required
-                value={formData.district} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-        <label>Province:
-                <input type="text" 
-                name="provience" 
-                required
-                value={formData.provience} 
-                onChange={handleChange} />
-            </label>
-        <br/>
-            <label>Phone Number:
-                <input type="text" 
+        </div>
+
+        <div class="input-group mb-3" >
+            <label class='input-containner form-label' >Phone Number:
+                <input class="form-control text-center" type="text" 
                 name="phone" 
                 value={formData.phone} 
                 onChange={handleChange}
                 pattern="0[0-9]{9}" 
                 />
             </label>
-        <br/>
-            <label>Email:
-                <input type="email" 
+
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Email:
+                <input class="form-control text-center" type="email" 
                 name="email" 
                 required
                 value={formData.email} 
                 onChange={handleChange} />
             </label>
-        <br/>
-        <label>Identity:
-                <input type="text" 
-                name="govermentId" 
+
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Identity:
+                    <input class="form-control text-center" type="text" 
+                    name="govermentId" 
+                    required
+                    value={formData.govermentId}
+                    pattern="[0-9]{13}"
+                    onChange={handleChange} />
+            </label>
+        </div>
+        
+        <div class="input-group mb-3" >
+
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Sub District:
+                <input class="form-control text-center" type="text" 
+                name="sub_district" 
                 required
-                value={formData.govermentId}
-                pattern="[0-9]{13}"
+                value={formData.sub_district} 
                 onChange={handleChange} />
             </label>
-        <br/>
+        
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>District:
+                <input class="form-control text-center" type="text" 
+                name="district" 
+                required
+                value={formData.district} 
+                onChange={handleChange} />
+            </label>
+        
+            <label class='input-containner form-label'  >
+            <mark className='star'>*</mark>Province:
+                <input class="form-control text-center" type="text" 
+                name="provience" 
+                required
+                value={formData.provience} 
+                onChange={handleChange} />
+            </label>
+
+        </div>
+        
             <button type="submit">Register</button>
             <button onClick={goToHome}>Cancle</button>
         </form>
     </div>
+        </div>
     )
   }
     export default Signup;

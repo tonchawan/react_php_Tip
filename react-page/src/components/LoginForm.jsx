@@ -33,8 +33,9 @@ function Login(props) {
       };
     
     return (
-<div className="login-container text-center">
-
+<div className="login-container text-center login-bg-image">
+    
+    <div >
   <img src='./userProfile.png' alt='Profile' class="img-fluid"/>
 
   <div>
@@ -68,6 +69,7 @@ function Login(props) {
 
     <Link to={'/signup'}>Register</Link>
   </div>
+    </div>
 </div>
       )
 }

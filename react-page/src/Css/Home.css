@@ -7,7 +7,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
   }
   
   nav h1 {
@@ -28,7 +27,7 @@ body {
   
   .star{
     color: red;
-    background-color:rgb(115, 115, 115);
+    background-color:rgba(0, 0, 0, 0);
   }
   
   .container {
@@ -74,7 +73,6 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
-    background-color: #333;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
@@ -103,14 +101,40 @@ body {
     color: #fff;
   }
   
-  .package-container {
+  /* .package-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* set the height to 80% of the viewport height */
-  }
+    height: 80vh; /* set the height to 80% of the viewport height 
+  } */
 
   .head-detail{
     margin-left: 5%;
+  }
+
+  form{
+    border-radius: 25px;
+    background-color: #090e9f;
+    color: #fff;
+  }
+  div.head-detail{
+    padding: 30px;
+  }
+  .card{
+  background-color: #62b3ed;
+  margin: 10px;
+  padding: 20px;
+  min-width: 300px;
+  }
+  .buy-btn{
+    border-radius: 75px;
+    font-size: 35px;
+    margin-left: 40% ; 
+    padding: 50px, 30px, 50px, 30px ;
+  }
+  .home-bg-img{
+    background-image: url(https://images.unsplash.com/photo-1679941279735-b3b35e8bc476?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+    background-size: cover;
+    height:100vh;
   }

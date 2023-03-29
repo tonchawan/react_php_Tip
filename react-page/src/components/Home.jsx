@@ -7,6 +7,8 @@ function Home() {
 
   const navigate = useNavigate();
   const [packageData, setPackage] = useState([""])
+  const packageImg = ["./userProfile.png"];
+
 
 // get package API
 useEffect(()=>{
@@ -30,23 +32,35 @@ useEffect(()=>{
   const goToLogin = e => {
     navigate("/login");
   };
+
+
 console.log(window.localStorage.getItem("user"));
   return (
-    <div>
+    <div className='home-bg-img'>
 
-      <div className="package-container">
-        {packageData.map((pkg) => (
-          <div key={pkg.id}>
+    <div className="package-container d-flex flex-wrap" > 
+
+
+      {packageData.map((pkg) => (
+      <div className="card " style={{width: "25rem"}}>
+          <>
+          {/* ex. myimage1.jpg, myimage2.jpg, myimage3.jpg */}
+          <img src={`${"./myimage" + pkg.id + ".jpg"}`} class="card-img-top" alt="..." />
+          <div class="card-title" key={pkg.id}>
+            
             <h2>{pkg.title}</h2>
-            <p>Premium: {pkg.premium}</p>
-            <p>Insurance Details: {pkg.insuranceDetail}</p>
+            <p class="card-text">{pkg.insuranceDetail}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Premium: {pkg.premium}</li>
+            </ul>
           </div>
-        ))}
+          </>
       </div>
+      ))}
       <br />
-
+    </div>
       <Link to="/buyForm">
-      <button>Own your product</button> 
+      <button className='buy-btn'>Own your product</button> 
       </Link>
     </div>
   )

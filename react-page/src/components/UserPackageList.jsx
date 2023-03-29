@@ -32,18 +32,19 @@ function UserPackageList(props) {
     }
 
     return(
-<div className=''>
-    <div className='head-detail' > 
-        <p>Username :{user.username}</p>   
-        <br/>
-        <p>Register Date :{user.created_at.toString().split("T")[0]}</p>   
+<div className='user-package-list package-bg'>
+    <div className='head-detail'  > 
+        <p>Username :{user.username}<span style={{marginLeft : "20px"}}>Register Date :{user.created_at.toString().split("T")[0]}</span></p>   
     </div>
+        <br/>
     <div> 
 
     <title>Insurance Report</title>
     </div>
-    <div>
-        <h3>Package Datail </h3>
+    <div style={{display:"flex", justifyContent:"center"}}>
+
+    <div className='package-list-containner' >
+        <h3>Package Detail </h3>
         <table>
             <thead>
                 <tr>
@@ -51,7 +52,7 @@ function UserPackageList(props) {
                   <th scope="col">Package name</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
-                  <th scope="col">Lasted update</th>
+                  <th scope="col">Last updated</th>
                   <th scope="col">Buy Status</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
@@ -68,10 +69,10 @@ function UserPackageList(props) {
                         <td>  {list.OrderStatus === 1 ? "Purchase": "Draft"} </td>
                         <td>
                             <a href={`http://tip.test/api/loadPdf/${list.id}`}>
-                                <button >Download</button>
+                                <button className = " btn-primary" >Download</button>
                             </a>
                         </td>
-                        <td> {list.OrderStatus === 1 ? '':<button onClick={()=>editDraft(list.id)}>Edit</button>}</td>
+                        <td> {list.OrderStatus === 1 ? '':<button onClick={()=>editDraft(list.id)} className="btn-warning">Edit</button>}</td>
                 </tr>
                   )
                 )}
@@ -79,11 +80,12 @@ function UserPackageList(props) {
               </tbody>
         </table>
     </div>
+    </div>
    
 
 
     <div>
-    <a href={`http://tip.test/api/report/${user.id}`}><button >Get report</button></a>
+    <a href={`http://tip.test/api/report/${user.id}`}><button className='getreport-btn' >Get report</button></a>
     </div>
 </div>
     )  

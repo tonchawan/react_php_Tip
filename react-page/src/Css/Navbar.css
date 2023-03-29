@@ -1,0 +1,12 @@
+nav{
+    height: 70px;
+    background-color: #090e9f;
+}
+.hamburger{
+    color: white;
+}
+.collapse , .collapse *{
+    background-color: #090e9f;
+    color: white;
+    z-index: 1000;
+}
