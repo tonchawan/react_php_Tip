@@ -33,7 +33,7 @@ tr:hover {
 .proflie-bg{
     background-image: url(https://images.unsplash.com/photo-1679860283368-a856a65fce27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
     background-size: cover;
-    height:100vh;
+    min-height:100vh;
 }
 .package-bg{
     background-image: url(https://images.unsplash.com/photo-1679849808529-8a8156cf13a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);

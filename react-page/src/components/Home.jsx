@@ -37,10 +37,8 @@ useEffect(()=>{
 console.log(window.localStorage.getItem("user"));
   return (
     <div className='home-bg-img'>
-
-    <div className="package-container d-flex flex-wrap" > 
-
-
+      <div className="package-container d-flex justify-content-center"  >
+    <div className="mx-auto package-container d-flex flex-wrap" > 
       {packageData.map((pkg) => (
       <div className="card " style={{width: "25rem"}}>
           <>
@@ -49,7 +47,7 @@ console.log(window.localStorage.getItem("user"));
           <div class="card-title" key={pkg.id}>
             
             <h2>{pkg.title}</h2>
-            <p class="card-text">{pkg.insuranceDetail}</p>
+            <p class="card-text">{pkg.insurance_detail}</p>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Premium: {pkg.premium}</li>
             </ul>
@@ -59,6 +57,7 @@ console.log(window.localStorage.getItem("user"));
       ))}
       <br />
     </div>
+      </div>
       <Link to="/buyForm">
       <button className='buy-btn'>Own your product</button> 
       </Link>

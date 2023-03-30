@@ -19,7 +19,7 @@ function UserProfile(props) {
         provience: '',
         phone: '',
         email: '',   
-        govermentId: '',     
+        goverment_id: '',     
       });
 
     const handleSubmit = e => {
@@ -85,9 +85,9 @@ return (
             <label class='input-containner form-label'>
                 <mark className='star'>*</mark>Identity:
                     <input class="form-control text-center" type="text" 
-                    name="govermentId"
+                    name="goverment_id"
                     required 
-                    defaultValue={user.govermentId}
+                    defaultValue={user.goverment_id}
                     pattern="[0-9]{13}"
                     onChange={handleChange} />
                 </label>

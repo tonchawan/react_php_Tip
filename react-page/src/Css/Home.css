@@ -134,7 +134,26 @@ body {
     padding: 50px, 30px, 50px, 30px ;
   }
   .home-bg-img{
-    background-image: url(https://images.unsplash.com/photo-1679941279735-b3b35e8bc476?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+    background-image: url(https://images.unsplash.com/photo-1679855823759-5c4f0aa188da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
     background-size: cover;
-    height:100vh;
+    min-height: 100vh;
+  }
+  .card-img-top{
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  .list-group-item{
+    align-items:baseline;
+  }
+  .card-text{
+    min-height: 147px;
+  }
+
+  @media  (max-width: 768px) {
+    /* For mobile phones: */
+    .buy-btn {
+      width: 100%;
+      margin: auto 0;
+      border-radius: 0px;
+    }
   }

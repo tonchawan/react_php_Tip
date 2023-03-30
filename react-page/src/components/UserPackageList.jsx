@@ -66,13 +66,13 @@ function UserPackageList(props) {
                         <td>  {list.name} </td>
                         <td>  {list.lastname} </td>
                         <td>  {list.updated_at.toString().split('T')[0]} </td>
-                        <td>  {list.OrderStatus === 1 ? "Purchase": "Draft"} </td>
+                        <td>  {list.order_status === 1 ? "Purchase": "Draft"} </td>
                         <td>
                             <a href={`http://tip.test/api/loadPdf/${list.id}`}>
                                 <button className = " btn-primary" >Download</button>
                             </a>
                         </td>
-                        <td> {list.OrderStatus === 1 ? '':<button onClick={()=>editDraft(list.id)} className="btn-warning">Edit</button>}</td>
+                        <td> {list.order_status === 1 ? '':<button onClick={()=>editDraft(list.id)} className="btn-warning">Edit</button>}</td>
                 </tr>
                   )
                 )}

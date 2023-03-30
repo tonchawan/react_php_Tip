@@ -43,7 +43,7 @@ form{
   width: 500;
 }
 .bg-image{
-  background-image:url("https://images.unsplash.com/photo-1679939099475-384a2ff77e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80") ;
+  background-image:url("https://images.unsplash.com/photo-1679882493712-0bf31e0cc5f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80") ;
   background-size: cover;
   height:100vh;
 }

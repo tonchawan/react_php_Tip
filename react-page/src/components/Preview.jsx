@@ -8,12 +8,12 @@ function Preview (props) {
 
   const buyData = props.buyData
   const [buyDatas, setBuyData] = useState({
-    userId: '' ,
-    packageId:'',
+    user_id: '' ,
+    package_id:'',
     prefix: '',
     name: '',
     lastname: '',
-    govermentId: '',
+    goverment_id: '',
     address:'',
     sub_district: '',
     district: '',
@@ -21,10 +21,10 @@ function Preview (props) {
     postcode:'',
     email: '',
     dob: '',
-    startDate:'',
-    endDate:'',
+    start_date:'',
+    end_date:'',
     beneficial:'',
-    OrderStatus:1,
+    order_status:1,
   });
 
     const handleSubmit = e => {
@@ -44,11 +44,11 @@ function Preview (props) {
 return(
 <div>
   <div id="preview-form">
-    <p>Package Name: {buyData.packageId}</p>
+    <p>Package Name: {buyData.package_id}</p>
     <p>Prefix: {buyData.prefix}</p>
     <p>First Name: {buyData.name}</p>
     <p>Last Name: {buyData.lastname}</p>
-    <p>Identity Number: {buyData.govermentId}</p>
+    <p>Identity Number: {buyData.goverment_id}</p>
     <p>Address: {buyData.address}</p>
     <p>Sub-District: {buyData.sub_district}</p>
     <p>District: {buyData.district}</p>
@@ -56,8 +56,8 @@ return(
     <p>Post code: {buyData.postcode}</p>
     <p>Email: {buyData.email}</p>
     <p>Date of Birth: {buyData.dob}</p>
-    <p>Coverage Start Date: {buyData.startDate}</p>
-    <p>Coverage End Date: {buyData.endDate}</p>
+    <p>Coverage Start Date: {buyData.start_date}</p>
+    <p>Coverage End Date: {buyData.end_date}</p>
     <p>Premium: {buyData.premium}</p>
     <p>Beneficial: {buyData.beneficial}</p>
   </div>

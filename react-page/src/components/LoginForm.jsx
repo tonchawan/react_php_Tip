@@ -5,17 +5,19 @@ import '../Css/Login.css';
 
 function Login(props) {
 
-
+    //create loginData state
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',
       });
 
+      // Use function setLoginData to input value
       const handleChange = e => {
         const { name, value } = e.target;
         setLoginData({ ...loginData, [name]: value });
       };
 
+      // Send data to backend
       const handleSubmit = e => {
         e.preventDefault();
         axios.post('http://tip.test/api/login',loginData)
@@ -34,7 +36,6 @@ function Login(props) {
     
     return (
 <div className="login-container text-center login-bg-image">
-    
     <div >
   <img src='./userProfile.png' alt='Profile' class="img-fluid"/>
 

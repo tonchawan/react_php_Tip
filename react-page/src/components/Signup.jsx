@@ -18,7 +18,7 @@ function Signup() {
         provience: '',
         phone: '',
         email: '',   
-        govermentId: '',     
+        goverment_id: '',     
       });
 
       const handleSubmit = e => {
@@ -66,25 +66,24 @@ function Signup() {
                 required
                 value={formData.password} 
                 onChange={handleChange} />
-            </label>
-        
-            <label class='input-containner form-label'  >
+            </label>   
+        </div>
+
+        <br/>
+        <div class="input-group mb-3" >
+
+        <label class='input-containner form-label'  >
             <mark className='star'>*</mark>Prefix:
                 <select class="form-select" aria-label="Default select example"
                 id="prefix" name="prefix" defaultValue={""} onChange={handleChange} required>
                     <option disabled value="">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>
-                    <option value="Mr. Boy">Mr. Boy</option>
+                    <option value="Mr. Boy">Master</option>
                     <option value="Miss">Miss</option>
-                    <option value="Girl">Girl</option>
                     <option value="Khun">Khun</option>
                 </select>
             </label>
-        </div>
-
-        <br/>
-        <div class="input-group mb-3" >
         
             <label class='input-containner form-label'  >
             <mark className='star'>*</mark>First Name:
@@ -127,9 +126,9 @@ function Signup() {
             <label class='input-containner form-label'  >
             <mark className='star'>*</mark>Identity:
                     <input class="form-control text-center" type="text" 
-                    name="govermentId" 
+                    name="goverment_id" 
                     required
-                    value={formData.govermentId}
+                    value={formData.goverment_id}
                     pattern="[0-9]{13}"
                     onChange={handleChange} />
             </label>
@@ -167,7 +166,7 @@ function Signup() {
         </div>
         
             <button type="submit">Register</button>
-            <button onClick={goToHome}>Cancle</button>
+            <button onClick={goToHome}>Cancel</button>
         </form>
     </div>
         </div>
